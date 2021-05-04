@@ -1,4 +1,4 @@
-import { utilsService } from '../services/utils.service.js'
+import { utilsService } from '../../../services/utils-service.js'
 import { booksService } from '../services/books-service.js'
 import { LongTxt } from '../../../cmps/LongTxt.jsx'
 import { ReviewAdd } from '../cmps/ReviewAdd.jsx'

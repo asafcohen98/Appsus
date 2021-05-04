@@ -3,3 +3,8 @@
 @import './helpers.css';
 @import './cmps/app-header.css';
 @import './pages/home.css';
+
+/* font-awesome */
+@import './fontawesome/solid.css';
+@import './fontawesome/regular.css';
+@import './fontawesome/all.min.css';

@@ -30,7 +30,7 @@ export class AppHeader extends React.Component {
 
                         <li className="books-link"><NavLink>Books</NavLink></li>
                         <li className="keep-link"><NavLink>Keep</NavLink></li>
-                        <li className="mail-link"><NavLink>Mail</NavLink></li>
+                        <li className="mail-link"><NavLink to="/email">Mail</NavLink></li>
                     </ul>
                 </nav>
             </section>

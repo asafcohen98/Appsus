@@ -1,4 +1,4 @@
-import { booksService } from './services/books.service.js'
+import { booksService } from '../services/books-service.js'
 import { RatingStars } from './RatingStars.jsx'
 export class ReviewList extends React.Component {
     
