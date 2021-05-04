@@ -28,8 +28,8 @@ export class AppHeader extends React.Component {
                         <li className="home-link"><NavLink exact to="/">Home</NavLink></li>
                         <li className="about-link"><NavLink to="/about">About</NavLink></li>
 
-                        <li className="books-link"><NavLink>Books</NavLink></li>
-                        <li className="keep-link"><NavLink>Keep</NavLink></li>
+                        <li className="books-link"><NavLink to="/book">Books</NavLink></li>
+                        <li className="keep-link"><NavLink to="/keep">Keep</NavLink></li>
                         <li className="mail-link"><NavLink to="/email">Mail</NavLink></li>
                     </ul>
                 </nav>

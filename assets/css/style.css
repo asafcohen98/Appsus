@@ -8,3 +8,6 @@
 @import './fontawesome/solid.css';
 @import './fontawesome/regular.css';
 @import './fontawesome/all.min.css';
+
+/* Keep App */
+@import '../../apps/keep/assets/css/keep-app.css';

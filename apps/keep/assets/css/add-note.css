@@ -1,0 +1,43 @@
+.add-note {
+    background-color: rgb(228, 228, 228);
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.add-note>*:not(:last-child) {
+    margin-inline-end: 2rem;
+}
+
+.add-note form{
+    display: flex;
+    align-items: center;
+}
+
+.add-note input {
+    margin-inline-end: 0.5rem;
+}
+
+.add-note button:first-of-type {
+    background-color: #ffff;
+    text-align: center;
+    border-radius: 3rem;
+    padding: 0.2em 0.5em;
+    border: none;
+    color: #76C893;
+    font-size: 1.5em;
+}
+
+.add-note button:not(:first-of-type){
+    color: #76C893;
+    font-size: 2em;
+}
+
+.fa-font.active-type,.fa-image.active-type,.fa-list-ul.active-type{
+    color: #212529;
+}
+
+
+
+
