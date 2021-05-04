@@ -1,17 +1,14 @@
+@import url(./email-preview.css);
+@import url(./email-list.css);
 
-
-
-
-body {
-    background-color: lightblue;
+.email-app {
+    display: flex;
+    height: 89.3vh;
+    justify-content: space-between;
 }
-
-.user-preview {
-    background-color: darkcyan;
-    padding: 5px;
-    width: 200px;
-    text-align: center;    
-}
-.user-preview button {
-    margin: 5px;
+.email-app-tool {
+    position: relative;
+    right: 100px;
+    width: 30%;
+    background-color: red;
 }

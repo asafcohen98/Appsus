@@ -11,3 +11,10 @@
 
 /* Keep App */
 @import '../../apps/keep/assets/css/keep-app.css';
+
+/* Email App */
+@import '../../apps/email/assets/css/email-app.css';
+
+
+#root{
+}

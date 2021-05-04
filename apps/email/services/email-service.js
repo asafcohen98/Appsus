@@ -28,15 +28,35 @@ function query(filterBy) {
 }
 
 function _loadEmails() {
-    createEmail('asdasd@get.com', 'some headline', 'some body');
-    createEmail('asdasd22@get.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@get.com', 'some good looking headline', 'some body', true);
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
+    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
     _saveEmailsToStorage()   
 }
 
-function createEmail(towards, subject, body) {
+function createEmail(towards, subject, body, isRead = false) {
     emails.push({
         id: utilsService.makeId(),
-        isRead: false,
+        isRead,
+        isChecked: false,
         towards,
         subject,
         body,

@@ -31,11 +31,15 @@ export class MissEmail extends React.Component {
         const { emails } = this.state
 
         if (!emails) return <div>Loading...</div>
-
+        window.emails = emails;
         return (
             <section className="email-app container">
                 {/* <BookFilter onSetFilter={this.onSetFilter} />
                     <BookAdd loadBooks={this.loadBooks} /> */}
+                {/* <EmailAdd> */}
+                <div className="email-app-tool">
+
+                </div>
                 <EmailList emails={emails} />
                 {/* <Route component={MailDetails} path="/mail/:mailId" /> */}
             </section>
