@@ -10,34 +10,38 @@
     margin-inline-end: 2rem;
 }
 
-.add-note form{
+.add-note form {
     display: flex;
     align-items: center;
 }
 
 .add-note input {
     margin-inline-end: 0.5rem;
+    padding: 1em 1em 1em 1em;
+    width: 300px;
 }
 
-.add-note button:first-of-type {
+.add-note button {
     background-color: #ffff;
     text-align: center;
     border-radius: 3rem;
-    padding: 0.2em 0.5em;
+    padding: 0.2em 0.4em;
     border: none;
-    color: #76C893;
+    color: #212529;
     font-size: 1.5em;
 }
 
-.add-note button:not(:first-of-type){
-    color: #76C893;
-    font-size: 2em;
-}
-
-.fa-font.active-type,.fa-image.active-type,.fa-list-ul.active-type{
+.add-note .fa-font, .fa-image, .fa-list-ul {
+    cursor: pointer;
     color: #212529;
+    font-size: 1.5em;
+    transition: color 0.3s;
 }
 
+.add-note .fa-font:hover, .fa-image:hover, .fa-list-ul:hover {
+    color: #76C893;
+}
 
-
-
+.add-note .fa-font.active-type, .fa-image.active-type, .fa-list-ul.active-type {
+    color: #76C893;
+}
