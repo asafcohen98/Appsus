@@ -4,10 +4,11 @@ import { storageService } from '../../../services/storage-service.js'
 const KEY = 'notesDB'
 
 export const notesService = {
-    query
+    query,
+    createNote
 }
 
-var notes = storageService.loadFromStorage(KEY) || createNotes()
+var notes = storageService.loadFromStorage(KEY) || _createNotes()
 
 function query(filterBy) {
     if (notes) {
@@ -27,7 +28,7 @@ function query(filterBy) {
 }
 
 // That function creating notes for data test:
-function createNotes() {
+function _createNotes() {
     notes = [{
         id: utilsService.makeId(),
         type: 'NoteText',
@@ -40,7 +41,7 @@ function createNotes() {
             todos: []
         },
         style: {
-            backgroundColor: '#ffff',
+            backgroundColor: 'green',
             color: '#1111',
             fontSize: '1rem',
         }
@@ -97,6 +98,8 @@ function createNote(type, info) {
         }
     }
      notes.push(note)
+     _saveNotesToStorage()
+     return Promise.resolve()
 }
 
 // That function save notes to storage

@@ -1,5 +1,6 @@
 import { notesService } from '../keep/services/notes-service.js'
 import { AddNote } from './cmps/AddNote.jsx'
+import { NotesList } from './cmps/NotesList.jsx'
 
 
 export class MissKeep extends React.Component {
@@ -8,12 +9,9 @@ export class MissKeep extends React.Component {
         filterBy: ''
     }
 
-    componentDidMount(){
-      this.loadNotes()
+    componentDidMount() {
+        this.loadNotes()
     }
-
-
-
 
     loadNotes = () => {
         const { filterBy } = this.state
@@ -23,9 +21,11 @@ export class MissKeep extends React.Component {
     }
 
     render() {
+        const { notes,loadNotes } = this.state
         return (
             <section className="keep-app container">
-            <AddNote/>
+                <AddNote />
+                <NotesList notes={notes}/>
             </section>
         )
     }
