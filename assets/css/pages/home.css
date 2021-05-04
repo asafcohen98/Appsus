@@ -2,7 +2,6 @@
 .home{
     display: flex;
     font-family: Raleway-Regular;
-    height: 100vh;
      flex-direction: column;
      justify-content: center;
      align-items: center;
