@@ -39,8 +39,12 @@ a {
 
 input {
     margin: 0 0 0;
-    padding: 0;
+    padding: 1em 4em 1em 1em;
+    border-radius: 2rem;
+    font-size: 1rem;
     outline: none;
+    border: 0;
+    background-color: #F1F3F4;
 }
 
 label {

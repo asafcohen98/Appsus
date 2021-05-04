@@ -3,3 +3,5 @@
 @import './helpers.css';
 @import './cmps/app-header.css';
 @import './pages/home.css';
+/* KEEP APP */
+@import '../../apps/keep/assets/css/keep-app.css';
