@@ -39,9 +39,9 @@ export class AddNote extends React.Component {
                     <input type="text" name="txtInput" placeholder={this.getPlaceholder(noteType)} id="add-note" />
                     <button><i className="fas fa-plus"></i></button>
                 </form>
-                <button  onClick={() => this.onSelectType()}><i className={`fas fa-font ${noteType === 'NoteText' ? 'active-type' : ''} `}></i></button>
-                <button  onClick={() => this.onSelectType()}><i className={`far fa-image ${noteType === 'NoteImg' ? 'active-type' : ''}`}></i></button>
-                <button  onClick={() => this.onSelectType()}><i className={`fas fa-list-ul ${noteType === 'NoteTodos' ? 'active-type' : ''}`}></i></button>
+                <i onClick={() => this.onSelectType()} className={`fas fa-font ${noteType === 'NoteText' ? 'active-type' : ''} `}></i>
+                <i onClick={() => this.onSelectType()} className={`far fa-image ${noteType === 'NoteImg' ? 'active-type' : ''}`}></i>
+                <i onClick={() => this.onSelectType()} className={`fas fa-list-ul ${noteType === 'NoteTodos' ? 'active-type' : ''}`}></i>
             </div>
         )
     }
