@@ -1,0 +1,87 @@
+/* BASE */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Raleway-Light, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #212529;
+}
+
+body {
+    margin: 0 0 0;
+}
+
+button {
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 0;
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+p {
+    margin: 0 0 0;
+    padding: 0;
+}
+
+
+a {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+}
+
+input {
+    margin: 0 0 0;
+    padding: 0;
+    outline: none;
+}
+
+label {
+    margin: 0 0 0;
+    padding: 0;
+    outline: none;
+}
+
+select {
+    cursor: pointer;
+    outline: none;
+}
+
+/* Scrollbar design
+
+::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+    padding: 0 0;
+    margin: 0 0 0;
+}
+
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(15, 155, 179);
+    background: linear-gradient(180deg, rgba(15, 155, 179, 1) 10%, rgba(48, 187, 114, 1) 72%);
+    border: 0px none #ffffff;
+    border-radius: 31px;
+}
+
+::-webkit-scrollbar-track {
+    background: #22252C;
+    border: 0px none;
+    border-radius: 27px;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+} */
+

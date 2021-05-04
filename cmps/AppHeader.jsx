@@ -1,0 +1,39 @@
+
+
+const { NavLink } = ReactRouterDOM
+
+export class AppHeader extends React.Component {
+    state = {
+        isNavOpen: false,
+    }
+
+
+
+    toggleNav = () => {
+        this.setState({ isNavOpen: !this.state.isNavOpen })
+    }
+
+
+
+    render() {
+        const { isNavOpen } = this.state
+        return (
+            <section className="header-content container">
+                <div className="logo">
+                    Appsus
+            </div>
+                <img onClick={() => this.toggleNav()} className="apps-grid" src="./assets/img/apps-grid.svg" alt="" />
+                <nav className={`main-nav ${isNavOpen ? 'show' : 'hidden'}`}>
+                    <ul className={"clean-list"}>
+                        <li className="home-link"><NavLink exact to="/">Home</NavLink></li>
+                        <li className="about-link"><NavLink to="/about">About</NavLink></li>
+
+                        <li className="books-link"><NavLink>Books</NavLink></li>
+                        <li className="keep-link"><NavLink>Keep</NavLink></li>
+                        <li className="mail-link"><NavLink>Mail</NavLink></li>
+                    </ul>
+                </nav>
+            </section>
+        )
+    }
+}

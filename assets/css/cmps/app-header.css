@@ -1,0 +1,68 @@
+.header-content {
+    font-family: Raleway-Regular;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #21252957;
+    height: 100px;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: #76C893;
+}
+
+.apps-grid {
+    cursor: pointer;
+    max-width: 50px;
+    height: 40px;
+}
+
+.apps-grid.open .main-nav {
+    background-color: lemonchiffon;
+}
+
+.main-nav {
+    position: absolute;
+    right: 0;
+    top: 100px;
+    background-color: #76C893;
+    width: 250px;
+}
+
+
+.main-nav ul {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.main-nav ul li{
+    padding: 1em;
+}
+
+.main-nav ul li a{
+    cursor: pointer;
+}
+
+.home-link {
+    grid-column: 1/4;
+}
+
+.about-link {
+    grid-column: 1/4;
+}
+
+.home-link {
+    grid-column: 1/4;
+}
+
+.home-link {
+    grid-column: 1/4;
+}
+
+.home-link {
+    grid-column: 1/4;
+}
