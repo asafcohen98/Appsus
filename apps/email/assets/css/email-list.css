@@ -4,10 +4,13 @@
 } */
 
 .email-list {
-    height: 70%;
-    width: 70vw;
+    height: 89.3vh;
+    width: 90vw;
     overflow: scroll;
     overflow-x: hidden;
+
+    position: absolute;
+    right: 0;
 }
 
 /* width */

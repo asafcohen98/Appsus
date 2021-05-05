@@ -12,11 +12,8 @@ export class TextNote extends React.Component {
         console.log(style.backgroundColor)
 
         return(
-            <h1  contentEditable="true">{txt}</h1>
+            <h1 contentEditable="true">{txt}</h1>
         )
         
     }
 }
-
-
-

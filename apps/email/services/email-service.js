@@ -10,6 +10,7 @@ var emails = storageService.loadFromStorage(KEY) || []
 export const emailsService = {
     query,
     getEmailById,
+    addEmail
 }
 
 function query(filterBy) {
@@ -52,15 +53,22 @@ function _loadEmails() {
     _saveEmailsToStorage()   
 }
 
-function createEmail(towards, subject, body, isRead = false) {
-    emails.push({
+function addEmail(emailContent) {
+    const {towards, subject, body, sentAt} = emailContent;
+    createEmail(towards, subject, body, sentAt);
+    _saveEmailsToStorage();
+    return Promise.resolve()
+}
+
+function createEmail(towards, subject, body, sentAt = Date.now(),  isRead = false) {
+    emails.unshift({
         id: utilsService.makeId(),
         isRead,
         isChecked: false,
         towards,
         subject,
         body,
-        sentAt: new Date()
+        sentAt
     });
 }
 
