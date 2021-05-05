@@ -1,22 +1,48 @@
 // import { utilsService } from '../../../services/utils-service.js'
 
+import { emailsService } from '../services/email-service.js'
+
 // const { Link } = ReactRouterDOM
 
-export function EmailDetails() {
+export class EmailDetails extends React.Component {
 
-    console.log()
-    // loadBook = () => {
-    //     const id = this.props.match.params.emailId
-    //     booksService.getBookById(id).then(book => {
-    //         if (!book) return this.props.history.push('/')
-    //         this.setState({ book })
-    //     })
-    // }
+    state = {
+        email: null
+    }
 
-    // const { thumbnail, title, listPrice, id } = book
-    return (
-        <section className="email-details">
-            email details
-        </section>
-    )
+    componentDidMount() {
+        this.loadEmail();
+    }
+    
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.emailId !== this.props.match.params.emailId) {
+            this.loadEmail();
+        }
+    }
+    
+    loadEmail = () => {
+        const id = this.props.match.params.emailId;
+        emailsService.getEmailById(id).then(email => {
+            if (!email) return this.props.history.push('/email/inbox')
+            this.setState({ email }, () => {
+                //TODO: update from service isRead to true (reading email)
+                this.state.email.isRead = !this.state.email.isRead
+            })
+        })
+    }
+
+    render() {
+        if (!this.state.email) return <div>Loading...</div>
+        const { id, towards, subject, body, sentAt } = this.state.email
+        return (
+            <section className="email-details">
+
+                <h1>{subject}</h1>
+                <p className="email-details-sender">{towards.split('@')[0]}</p>
+                <p>{towards}</p>
+                <p>{body}</p>
+                <small className="email-details-date">{new Date(sentAt).toLocaleString('en-GB' ,{ hour12: false })}</small>
+            </section>
+        )
+    }
 }

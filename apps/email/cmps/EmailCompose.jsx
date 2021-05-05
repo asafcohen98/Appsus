@@ -9,8 +9,7 @@ export class EmailCompose extends React.Component {
             sentAt: 0
         }
     }
-
-
+    
     handleChange = (ev) => {
         const { emailContent } = this.state;
         const value = ev.target.value;
@@ -20,7 +19,10 @@ export class EmailCompose extends React.Component {
 
     onAddEmail = (ev) => {
         ev.preventDefault();
+        const isValidMail = new RegExp('(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))')
         let { emailContent } = this.state;
+        console.log(isValidMail.test(emailContent.towards));
+
         emailContent = { ...emailContent, sentAt: Date.now() };
 
         emailsService.addEmail(emailContent).then(()=> {
@@ -43,7 +45,7 @@ export class EmailCompose extends React.Component {
                 <form action="" onSubmit={this.onAddEmail}>
                     <div className="email-compose-field compose-to">
                         <span>To:</span>
-                        <input required name="towards" type="text" onChange={this.handleChange} />
+                        <input required name="towards" type="email" onChange={this.handleChange} />
                     </div>
 
                     <div className="email-compose-field compose-subject">

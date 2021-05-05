@@ -7,5 +7,21 @@
     position: absolute;
     right: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+
+.email-details h1{
+    font-family: Raleway-Regular;
+    font-size: 30px;
+}
+
+.email-details-sender {
+    font-size: 20px;
+    font-family: Raleway-Regular;
+}
+
+
+.email-details-date {
+    align-self: flex-end;
+    margin-inline-end: 3em;
 }
