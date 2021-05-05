@@ -1,0 +1,131 @@
+.email-compose {
+    position: fixed;
+    max-width: 500px;
+    width: 500px;
+    bottom: 3vh;
+    right: 5vw;
+    height: 50vh;
+    z-index: 999;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%), 0 5px 5px -3px rgb(0 0 0 / 20%);
+}
+
+.email-compose-head {
+    display: flex;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-family: Raleway-Regular;
+    padding: 0.3em 1em;
+    width: 100%;
+    background-color: #76c893;
+}
+
+.email-compose-head :first-child {
+    flex-grow: 1;
+}
+
+.email-compose-head .fa-times {
+    cursor: pointer;
+}
+
+.email-compose form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #f1f3f4;
+}
+
+.email-compose-field {
+    background-color: #f1f3f4;
+    padding: 0.3em 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #21252957;
+}
+
+.email-compose-field input {
+    font-family: Raleway-Light;
+    font-weight: 700;
+    border-radius: unset;
+    width: 100%;
+}
+
+.email-compose-field span {
+    position: absolute;
+    left: 10px;
+}
+
+.email-compose-field.compose-to input {
+    padding-inline-start: 2.2em;
+    /* border-bottom: 1px solid black; */
+}
+
+.email-compose-field.compose-subject input {
+    padding-inline-start: 4.6em;
+}
+
+.email-compose-body {
+    resize: none;
+    font-family: Raleway-Light;
+    font-weight: 600;
+    outline: unset;
+    border: unset;
+    background-color: #f1f3f4;
+    flex-grow: 1;
+}
+
+.email-compose form button {
+    font-family: Raleway-Regular;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border: unset;
+    margin: 1em;
+    width: 5em;
+    padding: 1em;
+    background-color: #76c893;
+    border-radius: 10px;
+    transition: box-shadow .3s;
+}
+
+.email-compose form button:hover {
+    box-shadow: 0 0 5px #00000042;
+}
+
+.email-compose form button:active {
+    background-color: #6cb686;
+}
+
+/* SCROLL */
+
+/* width */
+
+.email-compose-body::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+
+.email-compose-body::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+/* Handle */
+
+.email-compose-body::-webkit-scrollbar-thumb {
+    background-color: #76c893;
+}
+
+/* Handle on hover */
+
+.email-compose-body:-webkit-scrollbar-thumb:hover {
+    background-color: #6cb686;
+    /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.192); */
+}
+
+.email-compose-body::-webkit-scrollbar-thumb:active {
+    background-color: #62a579;
+    box-shadow: inset 0 0 3px rgba(78, 78, 78, 0.287);
+}

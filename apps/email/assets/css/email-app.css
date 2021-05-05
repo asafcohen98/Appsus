@@ -1,14 +1,92 @@
+@import url(./email-compose.css);
 @import url(./email-preview.css);
 @import url(./email-list.css);
 
 .email-app {
     display: flex;
-    height: 89.3vh;
+    height: 89.2vh;
     justify-content: space-between;
 }
 .email-app-tool {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 555;
+    height: 89.3vh;
+    background-color: #fff;
+    /* align-items: center; */
+    /* position: relative; */
+    /* right: 100px; */
+    width: 90px;
+    transition: width .5s;
+}
+
+.email-app-tool:hover {
+    box-shadow: 0 3px 0 #000;
+    padding-inline-end: 1em;
+    width: 300px;
+    box-shadow: 0 16px 10px 0 rgb(0 0 0 / 14%), 0 11px 18px 0 rgb(0 0 0 / 12%), 0 13px 5px -1px rgb(0 0 0 / 20%);
+    /* transform: translateX(0%); */
+}
+
+.new-email-button {
+    margin: 1rem;
+    font-family: Raleway-Light;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+    display: flex;
     position: relative;
-    right: 100px;
-    width: 30%;
-    background-color: red;
+    align-items: center;
+    border: unset;
+    padding: 0.3em 0.5em;
+    border-radius: 5em;
+    background-color: unset;
+    margin-bottom: 5%;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    transition: padding .2s;
+}
+
+.new-email-button:hover {
+    box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+    /* background-color: #fafafb; */
+    color: #76C893;
+}
+
+.email-app-tool:hover .new-email-button::after {
+    right: 1em;
+    position: absolute;
+    content: 'Compose';
+}
+
+.email-app-tool:hover .new-email-button {
+    padding-inline-end: 6em;
+}
+
+.new-email-button .fa-plus {
+    /* margin-inline-end: 0.3em; */
+    /* align-self: center; */
+    font-size: 2em;
+    color: #76C893;
+}
+
+.email-inbox-wrapper {
+    font-family: Raleway-Light;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    background-color: rgb(238, 238, 238);
+    border-radius: 5em;
+}
+
+
+/* inbox button */
+
+.email-inbox-button {
+    background-color: unset;
+    border: unset;
+    /* border-radius: 50%; */
+}
+
+.email-inbox-wrapper .fa-inbox {
+    margin-inline-end: 1em
 }

@@ -2,24 +2,20 @@
 
 /* list helpers */
 
-.clean-list{
+.clean-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-.container{
-   padding: 0 3rem;
+.container {
+    padding: 0 3rem;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
-.show{
+.show {
     display: flex;
 }
-
-
-
-
