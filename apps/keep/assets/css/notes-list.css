@@ -1,0 +1,10 @@
+
+.notes-list{
+    padding: 5rem 0;
+    columns: 3;
+    column-gap: 5rem;
+    row-gap: 4;
+    break-inside: avoid;
+    align-items: center;
+    transform: translateZ(0);
+}

@@ -1,4 +1,5 @@
-import { notesService } from '../services/notes-service.jsx'
+import { notesService } from '../services/notes-service.js'
+import { utilsService } from '../../../services/utils-service.js'
 export class AddNote extends React.Component {
 
     state = {
@@ -36,6 +37,7 @@ export class AddNote extends React.Component {
                 return urlRegTest.test(txtInput)
             case 'NoteTodos':
                 return notesRegTest.test(txtInput)
+            default: return true
         }
     }
 
@@ -51,29 +53,30 @@ export class AddNote extends React.Component {
     onAddNote = (ev) => {
         ev.preventDefault()
         let { noteType, txtInput, noteInfo } = this.state
+        const { loadNotes } = this.props
         if (!this.checkIfValid(noteType, txtInput)) return
         if (noteType === 'NoteImg') {
             this.setState({ noteInfo: { ...noteInfo, url: txtInput } }, () => {
                 notesService.createNote(noteType, this.state.noteInfo).then(() => {
-                    console.log('Note img add')
                     this.resetState()
+                    loadNotes()
                 })
             })
         } else if (noteType === 'NoteTodos') {
             txtInput.charAt(txtInput.length - 1) === ',' ? txtInput = txtInput.substring(0, txtInput.length - 1) : txtInput
             let todos = txtInput.split(',')
-            todos = todos.map(todo => ({ txt: todo, doneAt: null }))
+            todos = todos.map(todo => ({ id: utilsService.makeId(), txt: todo, doneAt: null }))
             this.setState({ noteInfo: { ...noteInfo, todos: todos } }, () => {
                 notesService.createNote(noteType, this.state.noteInfo).then(() => {
-                    console.log('Note todos add')
                     this.resetState()
+                    loadNotes()
                 })
             })
         } else {
             this.setState({ noteInfo: { ...noteInfo, txt: txtInput } }, () => {
                 notesService.createNote(noteType, this.state.noteInfo).then(() => {
-                    console.log('Note txt add')
                     this.resetState()
+                    loadNotes()
                 })
             })
         }

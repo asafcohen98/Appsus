@@ -5,7 +5,11 @@ const KEY = 'notesDB'
 
 export const notesService = {
     query,
-    createNote
+    createNote,
+    updateNoteTxt,
+    getNoteById,
+    updateTodos,
+    removeTodo
 }
 
 var notes = storageService.loadFromStorage(KEY) || _createNotes()
@@ -51,7 +55,7 @@ function _createNotes() {
         isPinned: false,
         info: {
             txt: '',
-            url: 'http://some-img/me',
+            url: 'https://images6.fanpop.com/image/photos/39900000/IMG-6250-PNG-kion-39961687-1024-577.png',
             title: 'Me playing Mi',
             label: '',
             todos: []
@@ -69,10 +73,10 @@ function _createNotes() {
         info: {
             txt: '',
             url: '',
-            label: '',
+            label: 'Todos for today',
             todos: [
-                { txt: 'Do that', doneAt: null },
-                { txt: 'Do this', doneAt: 187111111 }]
+                { id: utilsService.makeId(), txt: 'lo ohev lasot dvrims dsadsadasdsaadsasdsa', doneAt: null },
+                { id: utilsService.makeId(), txt: 'Do this dsadsadasdasdadsada', doneAt: new Date() }]
         },
         style: {
             backgroundColor: '#ffff',
@@ -97,14 +101,45 @@ function createNote(type, info) {
             fontSize: '1rem',
         }
     }
-     notes.push(note)
-     _saveNotesToStorage()
-     return Promise.resolve()
+    notes.push(note)
+    _saveNotesToStorage()
+    return Promise.resolve()
 }
 
 // That function save notes to storage
 function _saveNotesToStorage() {
     storageService.saveToStorage(KEY, notes)
+}
+
+// That function update specific note text
+function updateNoteTxt(note, newTxt) {
+    note.info.txt = newTxt
+    _saveNotesToStorage()
+    return Promise.resolve()
+}
+
+
+// That funcion get note by id
+function getNoteById(noteId) {
+    const note = notes.find(note => noteId === note.id)
+    return Promise.resolve(note)
+}
+
+// That function update specific note todos
+function updateTodos(note, todos) {
+    note.info.todos = todos
+    _saveNotesToStorage()
+    return Promise.resolve()
+}
+
+// That function remove the todo from specific note
+function removeTodo(note, todo) {
+    const { todos } = note.info
+    const todoIdx = todos.indexOf(todo)
+    todos.splice(todoIdx,1)
+    note.info.todos = todos
+    _saveNotesToStorage()
+    return Promise.resolve(todos)
 }
 
 

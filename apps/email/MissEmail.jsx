@@ -19,7 +19,7 @@ export class MissEmail extends React.Component {
     loadEmails = () => {
         emailsService.query(this.state.filterBy)
             .then(emails => {
-                this.setState({ emails }, console.log(emails))
+                this.setState({ emails })
             })
     }
 

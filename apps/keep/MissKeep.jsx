@@ -21,10 +21,10 @@ export class MissKeep extends React.Component {
     }
 
     render() {
-        const { notes,loadNotes } = this.state
+        const { notes } = this.state
         return (
             <section className="keep-app container">
-                <AddNote />
+                <AddNote loadNotes={this.loadNotes}  />
                 <NotesList notes={notes}/>
             </section>
         )
