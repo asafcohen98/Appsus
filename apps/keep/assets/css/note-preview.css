@@ -1,0 +1,70 @@
+.note-preview {
+    display: flex;
+    border: 0.5px solid lightgray;
+    flex-direction: column;
+    padding: 1em;
+    width: 400px;
+    min-height: 400px;
+    margin-bottom: 1rem;
+}
+
+.note-preview>*:first-child{
+    box-shadow: inset 0 0 2px #0000001f;
+}
+
+.note-preview .text-container textarea {
+    resize: none;
+    overflow: hidden;
+    width: 100%;
+    min-height: 300px;
+    outline: none;
+}
+
+.note-preview textarea{
+    padding: 1em;
+    width: 100%;
+    resize: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.note-preview .img-container {
+    height: 300px;
+}
+
+.note-preview .img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.note-preview .todos-container {
+    padding: 1em;
+    min-height: 300px;
+}
+
+.note-preview .todos-container h2 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.note-preview .todos-container textarea{
+    padding: 0;
+    margin: 0;
+    height: 40px;
+}
+
+.note-preview .todos-container ul li {
+    display: flex;
+    width: 100%;
+}
+
+.note-preview .todos-container ul>*:not(:last-child){
+    margin-bottom: 1em;
+}
+
+.note-preview .todos-container ul li>*:not(:last-child){
+    margin-inline-end: 1em;
+}
