@@ -2,25 +2,29 @@
     display: flex;
     border: 0.5px solid lightgray;
     flex-direction: column;
+    break-inside: avoid;
     padding: 1em;
     width: 400px;
     min-height: 400px;
     margin-bottom: 1rem;
 }
 
-.note-preview>*:first-child{
+.note-preview>*:first-child {
     box-shadow: inset 0 0 2px #0000001f;
 }
 
 .note-preview .text-container textarea {
+    font-size: 2em;
     resize: none;
     overflow: hidden;
+    background-color: transparent;
     width: 100%;
     min-height: 300px;
     outline: none;
 }
 
-.note-preview textarea{
+.note-preview textarea {
+    font-size: 2em;
     padding: 1em;
     width: 100%;
     resize: none;
@@ -41,30 +45,107 @@
 }
 
 .note-preview .todos-container {
+    position: relative;
     padding: 1em;
     min-height: 300px;
+    flex-direction: column;
+    display: flex;
 }
 
-.note-preview .todos-container h2 {
-    text-align: center;
-    margin-bottom: 1em;
+.note-preview .todos-container .todos-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2em;
 }
 
-.note-preview .todos-container textarea{
+.note-preview .todos-container .todos-title .fa-plus-circle {
+    font-size: 2em;
+    margin-inline-end: 1em;
+    transition: all 0.3s;
+}
+
+.note-preview .todos-container .todos-title .fa-plus-circle:hover {
+    color: #76C893;;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.note-preview .todos-container .todos-title .fa-plus-circle {
+    font-size: 2em;
+    margin-inline-end: 1em;
+}
+
+.note-preview .todos-container .todos-title h2{
+    font-size: 1.2em;
+}
+
+
+.note-preview .todos-container textarea {
     padding: 0;
-    margin: 0;
-    height: 40px;
+    margin: 0 0 0;
+    max-width: 20ch;
+    flex: 1;
 }
+
+.note-preview .todos-container textarea.text-muted{
+    color: #736F73;
+    text-decoration: line-through;
+}
+
+.note-preview .todos-container .todo-done-at {
+    font-family: Raleway-Regular;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
 
 .note-preview .todos-container ul li {
-    display: flex;
     width: 100%;
+    display: flex;
 }
 
-.note-preview .todos-container ul>*:not(:last-child){
+.note-preview .todos-container ul>*:not(:last-child) {
     margin-bottom: 1em;
 }
 
-.note-preview .todos-container ul li>*:not(:last-child){
+.note-preview .todos-container ul li>*:not(:last-child) {
     margin-inline-end: 1em;
+}
+
+.note-preview .todos-container ul li i {
+    cursor: pointer;
+    font-size: 2em;
+}
+
+.note-preview .todos-container ul li .fa-circle {
+    color: #212529;
+    transition: color 0.3s;
+}
+
+.note-preview .todos-container ul li .fa-circle:hover {
+    color: #76C893;
+}
+
+.note-preview .todos-container ul li .fa-check-circle {
+    color: #76C893;
+}
+
+.note-preview .todos-container ul li .fa-check-circle:hover {
+    color: #a1f0bd;
+}
+
+
+.note-preview .todos-container ul li button {
+    background-color: transparent;
+    border: none;
+    align-self: flex-start;
+    font-size: 0.9em;
+    right: 1em;
+    transition: color 0.3s;
+}
+
+.note-preview .todos-container ul li button:hover {
+   color: #e65555;
 }

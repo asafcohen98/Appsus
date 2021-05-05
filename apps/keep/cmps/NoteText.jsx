@@ -9,9 +9,7 @@ export class NoteText extends React.Component {
 
     componentDidMount() {
         const { info: { txt } } = this.props.note
-        this.setState({ noteTxt: txt },()=>{
-            if(!this.state.noteTxt) this.inputRef.current.focus()
-        })
+        this.setState({ noteTxt: txt })
     }
 
     inputRef = React.createRef()
@@ -29,12 +27,11 @@ export class NoteText extends React.Component {
 
 
     render() {
-        const { style } = this.props.note
         const { noteTxt } = this.state
         if (!noteTxt) <div>Loading...</div>
         return (
-             <div className="text-container" style={{ backgroundColor: style.backgroundColor }} >
-            <textarea ref={this.inputRef} value={noteTxt} onBlur={this.saveChanges} onChange={this.handleChange}>
+             <div className="text-container" >
+            <textarea spellCheck="false" value={noteTxt} onBlur={this.saveChanges} onChange={this.handleChange}>
             </textarea >
             </div>
         )
