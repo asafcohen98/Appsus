@@ -1,0 +1,11 @@
+
+
+.email-details {
+    height: 89.3vh;
+    width: 90vw;
+
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}

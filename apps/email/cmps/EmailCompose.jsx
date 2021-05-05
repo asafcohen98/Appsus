@@ -43,11 +43,12 @@ export class EmailCompose extends React.Component {
                 <form action="" onSubmit={this.onAddEmail}>
                     <div className="email-compose-field compose-to">
                         <span>To:</span>
-                        <input name="towards" type="text" onChange={this.handleChange} />
+                        <input required name="towards" type="text" onChange={this.handleChange} />
                     </div>
 
                     <div className="email-compose-field compose-subject">
-                        <span>Subject:</span> <input name="subject" type="text" onChange={this.handleChange} />
+                        <span>Subject:</span>
+                        <input required name="subject" type="text" onChange={this.handleChange} />
                     </div>
 
                     <textarea className="email-compose-body" name="body" type="text"

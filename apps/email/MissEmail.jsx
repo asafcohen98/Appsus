@@ -44,12 +44,13 @@ export class MissEmail extends React.Component {
 
                 <div className="email-app-tool">
 
-                    <Link to="/email/compose">
+                    <Link to="/email/inbox/compose">
                         <button className="new-email-button">
                             <i className="fas fa-plus"></i>
                         </button>
                     </Link>
 
+                    <Link to="/email/inbox">
                     <div className="email-inbox-wrapper">
                         <button className="email-inbox-button">
                             <i className="fas fa-inbox"></i>
@@ -58,8 +59,8 @@ export class MissEmail extends React.Component {
                             Inbox (20)
                         </span>
                     </div>
+                    </Link>
 
-                    <Link to="/email/inbox">
                     <div className="email-inbox-wrapper">
                         <button className="email-inbox-button">
                             <i className="fas fa-inbox"></i>
@@ -68,14 +69,14 @@ export class MissEmail extends React.Component {
                             Read
                         </span>
                     </div>
-                    </Link>
                 </div>
 
-                <Route exact path="/email/compose" render={(props) => <EmailCompose {...props} loadEmails={this.loadEmails} />} />
+                <Route path="/email/inbox/compose" render={(props) => <EmailCompose {...props} loadEmails={this.loadEmails} />} />
                 {/* <EmailCompose loadEmails={this.loadEmails} /> */}
 
-                {/* <Route component={EmailDetails} path="/email/:emailId" /> */}
-                <Route exact path="/email/inbox" render={(props) => <EmailList {...props} emails={emails} />} />
+                <Route component={EmailDetails} exact path="/email/:emailId" />
+
+                <Route path="/email/inbox" render={(props) => <EmailList {...props} emails={emails} />} />
                 {/* <EmailList emails={emails} /> */}
             </section>
         )
