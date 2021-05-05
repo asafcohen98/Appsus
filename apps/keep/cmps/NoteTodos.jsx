@@ -11,12 +11,13 @@ export class NoteTodos extends React.Component {
 
     componentDidMount() {
         let { info: { todos, label } } = this.props.note
-        if (!label) label = 'Todos'
+        if (!label) label = `Created at: ${this.getCurrTime(new Date())}`
         this.setState({ todos: todos, label: label })
     }
 
     getCurrTime = (doneAt) => {
-        return new Date(doneAt).toLocaleString('en-US', { hour12: false })
+        const date = new Date(doneAt).toLocaleString('en-US', { hour12: false })
+        return date.split(',')
     }
 
     onRemoveTodo = (todo) => {
@@ -41,26 +42,44 @@ export class NoteTodos extends React.Component {
         notesService.updateTodos(note, todos).then(() => loadNote())
     }
 
+    toggleDoneTodo = (todo) => {
+        const { note, loadNote } = this.props
+        const { todos } = this.state
+        notesService.updateDoneTodo(note, todo).then((newTodos) => {
+            this.setState({ todos: newTodos }, () => loadNote())
+        })
+    }
+
+    onAddTodo = () =>{
+
+    }
+
     render() {
         const { label, todos } = this.state
         return (
             <div className="todos-container">
-                { todos.length ? <h2>{label}</h2> : <h2>No todos</h2>}
+                <div className="todos-title">
+                    <button className="fas fa-plus-circle clean-btn " onClick={() => this.onAddTodo}></button>
+                    {todos.length ? <h2>{label}</h2> : <h2>No todos</h2>}
+                </div>
                 <ul className="clean-list">
                     {todos.map(todo => {
                         if (todo.doneAt) {
                             return <li key={todo.id}>
-                                <i className="fas fa-check-circle"></i>
-                                <textarea spellCheck="false" value={todo.txt} readOnly>
+                                <i onClick={() => this.toggleDoneTodo(todo)} className="fas fa-check-circle"></i>
+                                <textarea className="text-muted" spellCheck="false" value={todo.txt} readOnly>
                                 </textarea >
-                                <span>{this.getCurrTime(todo.doneAt)}</span>
+                                <div className="todo-done-at">
+                                    <span>{this.getCurrTime(todo.doneAt)[0]}</span>
+                                    <span>{this.getCurrTime(todo.doneAt)[1]}</span>
+                                </div>
                                 <button onClick={() => this.onRemoveTodo(todo)}>
                                     <i className="fas fa-trash"></i>
                                 </button>
                             </li>
                         } else {
                             return <li key={todo.id}>
-                                <i onClick={() => done} className="fas fa-circle"></i>
+                                <i onClick={() => this.toggleDoneTodo(todo)} className="fas fa-circle"></i>
                                 <textarea spellCheck="false" value={todo.txt} onBlur={this.saveChanges} onChange={(ev) => this.handleChange(ev, todo)}>
                                 </textarea >
                                 <button onClick={() => this.onRemoveTodo(todo)}>

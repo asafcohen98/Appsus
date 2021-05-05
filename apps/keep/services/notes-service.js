@@ -9,7 +9,8 @@ export const notesService = {
     updateNoteTxt,
     getNoteById,
     updateTodos,
-    removeTodo
+    removeTodo,
+    updateDoneTodo
 }
 
 var notes = storageService.loadFromStorage(KEY) || _createNotes()
@@ -137,6 +138,17 @@ function removeTodo(note, todo) {
     const { todos } = note.info
     const todoIdx = todos.indexOf(todo)
     todos.splice(todoIdx,1)
+    note.info.todos = todos
+    _saveNotesToStorage()
+    return Promise.resolve(todos)
+}
+
+// That function toggle between doneAt = null to the current time (mark the todo)
+function updateDoneTodo(note,todo){
+    if(!todo.txt) return
+    const { todos } = note.info
+    const todoIdx = todos.indexOf(todo)
+    todos[todoIdx].doneAt = !todos[todoIdx].doneAt ?  new Date() : null
     note.info.todos = todos
     _saveNotesToStorage()
     return Promise.resolve(todos)

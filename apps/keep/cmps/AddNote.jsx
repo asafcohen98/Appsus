@@ -15,8 +15,10 @@ export class AddNote extends React.Component {
     }
 
     componentDidMount() {
-
+        if(!this.state.noteTxt) this.inputRef.current.focus()
     }
+
+    inputRef = React.createRef()
 
     getPlaceholder = (noteType) => {
         switch (noteType) {
@@ -102,8 +104,8 @@ export class AddNote extends React.Component {
             <div className="add-note">
                 <form onSubmit={this.onAddNote}>
                     <label htmlFor="add-note"></label>
-                    <input type="text" name="txtInput" placeholder={this.getPlaceholder(noteType)} value={txtInput} id="add-note" onChange={this.handleChange} />
-                    <button><i className="fas fa-plus"></i></button>
+                    <input ref={this.inputRef} type="text" name="txtInput" placeholder={this.getPlaceholder(noteType)} value={txtInput} id="add-note" onChange={this.handleChange} />
+                    <button><i className="fas fa-plus-circle"></i></button>
                 </form>
                 <i onClick={() => this.onSelectType('NoteText')} className={`fas fa-font ${noteType === 'NoteText' ? 'active-type' : ''} `}></i>
                 <i onClick={() => this.onSelectType('NoteImg')} className={`far fa-image ${noteType === 'NoteImg' ? 'active-type' : ''}`}></i>

@@ -4,6 +4,7 @@
     align-items: center;
     padding: 1rem;
     margin: 2rem 0;
+    border-radius: 2.5rem;
 }
 
 .add-note>*:not(:last-child) {
@@ -21,21 +22,25 @@
     width: 300px;
 }
 
+.add-note input:focus{
+    box-shadow: 0px 0px 2px 0px #00000057;
+}
+
 .add-note button {
-    background-color: #ffff;
+    background-color: transparent;
     text-align: center;
     border-radius: 3rem;
     padding: 0.2em 0.4em;
     border: none;
-    color: #212529;
-    font-size: 1.5em;
+    color: #76C893;
+    font-size: 2em;
 }
 
 .add-note .fa-font, .fa-image, .fa-list-ul {
     cursor: pointer;
     color: #212529;
     font-size: 1.5em;
-    transition: color 0.3s;
+    transition: all 0.3s;
 }
 
 .add-note .fa-font:hover, .fa-image:hover, .fa-list-ul:hover {
@@ -44,4 +49,5 @@
 
 .add-note .fa-font.active-type, .fa-image.active-type, .fa-list-ul.active-type {
     color: #76C893;
+    transform: scale(1.2);
 }

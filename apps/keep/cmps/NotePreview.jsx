@@ -7,6 +7,7 @@ import { NoteTodos } from '../cmps/NoteTodos.jsx'
 export function NotePreview({ note }) {
 
     const currNoteType = note.type;
+    const { style } = note
 
     function loadNote() {
         notesService.getNoteById(note.id).then((updatedNote) => {
@@ -27,7 +28,7 @@ export function NotePreview({ note }) {
         }
     }
 
-    return <div className="note-preview">
+    return <div className="note-preview" style={{ backgroundColor: style.backgroundColor }}>
         <DynamicCmp note={note} loadNote={loadNote} />
         {/* <ControlNote /> */}
     </div>
