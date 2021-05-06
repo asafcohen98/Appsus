@@ -1,26 +1,28 @@
-
+import { Loader } from '../../../cmps/Loader.jsx'
 
 
 
 
 
 export class NoteImg extends React.Component {
-   
+
     state = {
         loaded: false,
     }
 
     render() {
-        const { style } = this.props.note
-        const {url} = this.props.note.info
+        const { loaded } = this.state
+        const { url } = this.props.note.info
         return (
             <div className="img-container">
+                {!loaded ? <Loader /> : ''}
                 <img
-                    style={this.state.loaded ? {} : { display: 'none' }}
+                    className="note-img"
+                    style={loaded ? { opacity: '100' } : { opacity: '0' }}
                     src={url}
                     onLoad={() => this.setState({ loaded: true })}
                 />
-                </div>
+            </div>
         )
     }
 

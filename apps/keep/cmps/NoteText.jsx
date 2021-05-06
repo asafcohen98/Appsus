@@ -6,7 +6,6 @@ export class NoteText extends React.Component {
         noteTxt: ''
     }
 
-
     componentDidMount() {
         const { info: { txt } } = this.props.note
         this.setState({ noteTxt: txt })
@@ -14,9 +13,11 @@ export class NoteText extends React.Component {
 
     inputRef = React.createRef()
 
+
     handleChange = (ev) => {
+        const {noteTxt} = this.state
         const { value } = ev.target
-        this.setState({ noteTxt: value })
+        this.setState({ noteTxt: value})
     }
 
     saveChanges = () => {
@@ -30,9 +31,12 @@ export class NoteText extends React.Component {
         const { noteTxt } = this.state
         if (!noteTxt) <div>Loading...</div>
         return (
-             <div className="text-container" >
-            <textarea spellCheck="false" value={noteTxt} onBlur={this.saveChanges} onChange={this.handleChange}>
+            <div className="text-container" >
+                <textarea role="textbox" spellCheck="false" value={noteTxt} onBlur={this.saveChanges} onChange={this.handleChange}>
             </textarea >
+                {/* <span suppressContentEditableWarning={true} role="textbox" onBlur={this.saveChanges} onInput={this.handleChange}  contentEditable>
+                {noteTxt}
+                </span> */}
             </div>
         )
 

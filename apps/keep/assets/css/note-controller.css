@@ -1,0 +1,43 @@
+
+
+.note-controller{
+    color: rgb(14, 11, 11);
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    justify-content: space-between;
+}
+
+.note-controller .control-panel{
+    display: flex;
+}
+
+.note-controller .control-panel *{
+    font-size: 1em;
+    transition: all 0.3s;
+}
+
+.note-controller .control-panel >*:not(:last-child){
+    margin-inline-end: 1em;
+}
+
+.note-controller .control-panel .fa-thumbtack, .control-panel .fa-check,.control-panel .fa-palette, .control-panel .fa-trash{
+    color: rgb(14, 11, 11);
+}
+
+.note-controller .control-panel .fa-thumbtack:hover, .control-panel .fa-check:hover,.control-panel .fa-palette:hover  {
+    color: #76C893;
+    transform: scale(1.2);
+}
+
+.note-controller .control-panel .fa-thumbtack.active, .control-panel .fa-check.active,.control-panel .fa-palette.active  {
+    color: #76C893;
+    transform: scale(1.2);
+}
+
+.note-controller .control-panel .fa-trash:hover{
+    color: #e65555;
+    transform: scale(1.2);
+}
+

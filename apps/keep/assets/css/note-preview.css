@@ -1,21 +1,23 @@
 .note-preview {
     display: flex;
+    color: rgb(14, 11, 11);
     border: 0.5px solid lightgray;
     flex-direction: column;
     break-inside: avoid;
     padding: 1em;
     width: 400px;
-    min-height: 400px;
     margin-bottom: 1rem;
+    transition: background-color 0.5s;
 }
 
 .note-preview>*:first-child {
     box-shadow: inset 0 0 2px #0000001f;
+    margin-bottom: 1em;
 }
 
 .note-preview .text-container textarea {
     font-size: 2em;
-    resize: none;
+    resize:vertical;
     overflow: hidden;
     background-color: transparent;
     width: 100%;
@@ -37,7 +39,7 @@
     height: 300px;
 }
 
-.note-preview .img-container img {
+.note-preview .img-container .note-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -65,30 +67,27 @@
 }
 
 .note-preview .todos-container .todos-title .fa-plus-circle:hover {
-    color: #76C893;;
+    color: #76C893;
     transform: scale(1.1);
     cursor: pointer;
 }
 
-.note-preview .todos-container .todos-title .fa-plus-circle {
-    font-size: 2em;
-    margin-inline-end: 1em;
-}
-
-.note-preview .todos-container .todos-title h2{
+.note-preview .todos-container .todos-title h2 {
+    color: rgb(14, 11, 11);
+    font-family: Raleway-Regular;
     font-size: 1.2em;
 }
 
-
 .note-preview .todos-container textarea {
+    font-size: 1.5em;
     padding: 0;
     margin: 0 0 0;
     max-width: 20ch;
+    height: 80px;
     flex: 1;
 }
 
-.note-preview .todos-container textarea.text-muted{
-    color: #736F73;
+.note-preview .todos-container textarea.text-muted {
     text-decoration: line-through;
 }
 
@@ -100,8 +99,8 @@
     font-weight: 600;
 }
 
-
 .note-preview .todos-container ul li {
+    color: rgb(14, 11, 11);
     width: 100%;
     display: flex;
 }
@@ -114,13 +113,14 @@
     margin-inline-end: 1em;
 }
 
-.note-preview .todos-container ul li i {
-    cursor: pointer;
-    font-size: 2em;
-}
 
 .note-preview .todos-container ul li .fa-circle {
-    color: #212529;
+    color: rgb(14, 11, 11);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 100%;
+    align-self: flex-start;
+    cursor: pointer;
+    font-size: 2em;
     transition: color 0.3s;
 }
 
@@ -129,23 +129,29 @@
 }
 
 .note-preview .todos-container ul li .fa-check-circle {
+    align-self: flex-start;
+    border-radius: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    cursor: pointer;
+    font-size: 2em;
     color: #76C893;
+    transition: color 0.3s;
 }
 
 .note-preview .todos-container ul li .fa-check-circle:hover {
-    color: #a1f0bd;
+    color: #58ce81;
 }
 
-
-.note-preview .todos-container ul li button {
+.note-preview .todos-container ul li .fa-trash {
+    color: rgb(14, 11, 11);
     background-color: transparent;
     border: none;
     align-self: flex-start;
-    font-size: 0.9em;
+    font-size: 1.5em;
     right: 1em;
     transition: color 0.3s;
 }
 
-.note-preview .todos-container ul li button:hover {
-   color: #e65555;
+.note-preview .todos-container ul li .fa-trash:hover {
+    color: #e65555;
 }
