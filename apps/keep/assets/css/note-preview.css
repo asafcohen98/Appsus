@@ -1,11 +1,12 @@
 .note-preview {
     display: flex;
+    margin: 0 1em;
     color: rgb(14, 11, 11);
     border: 0.5px solid lightgray;
     flex-direction: column;
     break-inside: avoid;
+    max-width: 380px;
     padding: 1em;
-    width: 400px;
     margin-bottom: 1rem;
     transition: background-color 0.5s;
 }

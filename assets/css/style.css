@@ -7,14 +7,18 @@
 
 /* Global Cmps */
 @import './cmps/app-header.css';
+@import './input-range.css';
 @import './cmps/color-palette.css';
 @import './cmps/loader.css';
 @import './cmps/progress-bar.css';
 
-/* font-awesome */
+/* Font-awesome */
 @import './fontawesome/solid.css';
 @import './fontawesome/regular.css';
 @import './fontawesome/all.min.css';
+
+/* Animate css */
+@import './animate/animate.css';
 
 /* Keep App */
 @import '../../apps/keep/assets/css/keep-app.css';
@@ -22,6 +26,5 @@
 /* Email App */
 @import '../../apps/email/assets/css/email-app.css';
 
-
-#root{
-}
+ /* Book App */
+ @import '../../apps/books/assets/css/book-app.css';

@@ -34,7 +34,11 @@ export class ReviewList extends React.Component {
                             }}>x</button>
                             <h1>{review.fullName}</h1>
                             <RatingStars rate={review.rate} isPreview={true} />
-                            <h1>Comment: {review.text}</h1>
+                            <div className="review-desc">
+                                <p>
+                                {review.text}
+                                </p>
+                            </div>
                             <h3>{review.date}</h3>
                         </div>
                     )

@@ -1,8 +1,7 @@
 
 .notes-list{
-    padding: 5rem 0;
-    columns: 3;
+    width: 100%;
+    column-count: auto;
+    column-width: 380px;
     column-gap: 1rem;
-    break-inside: avoid;
-    align-items: center;
 }

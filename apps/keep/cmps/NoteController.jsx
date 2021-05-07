@@ -1,11 +1,14 @@
 import { notesService } from '../services/notes-service.js'
 import { ColorPalette } from '../../../cmps/ColorPalette.jsx'
 
+const { Link } = ReactRouterDOM
+
 export class NoteController extends React.Component {
 
     state = {
         note: null,
-        isColorPalette: false
+        isColorPalette: false,
+        emailUrl: null,
     }
 
     componentDidMount() {
@@ -54,9 +57,31 @@ export class NoteController extends React.Component {
         })
     }
 
-    onSendToEmail = () => {
-        const { note } = this.state
-        console.log(note)
+    getEmailUrl = () => {
+        const { note, emailUrl } = this.state
+        var subject = null
+        var body = null
+        switch (note.type) {
+            case 'NoteText':
+                subject = 'New text'
+                body = note.info.txt
+                break
+            case 'NoteImg':
+                subject = 'New image'
+                body = note.info.url
+                break
+            case 'NoteTodos':
+                subject = 'New todos'
+                const todosTxt = note.info.todos.map(todo => todo.txt)
+                body = todosTxt.join('%0A')
+                break
+            case 'NoteVideo':
+                subject = 'New video'
+                body = `https://www.youtube.com/watch?v=${note.info.ytId}`
+                break
+        }
+        if (!body) return
+        return `/email/inbox?compose=new&to=asafc2000@gmail.com&subject=${subject}&body=${body}`
     }
 
 
@@ -64,6 +89,7 @@ export class NoteController extends React.Component {
         const { note, isColorPalette } = this.state
         const { getNoteIcon } = this.props
         if (!note) return ''
+        const emailUrl = this.getEmailUrl()
         return (
             <div onClick={() => this.setState({ isColorPalette: false })} className="note-controller">
                 <i className={getNoteIcon()}></i>
@@ -74,10 +100,11 @@ export class NoteController extends React.Component {
                         {isColorPalette ? <ColorPalette onSetColor={this.onSetBackgroundColor} /> : ''}
                         <button onClick={this.toggleColorPalette} className={`fas fa-palette clean-btn ${isColorPalette ? 'active' : ''}`}></button>
                     </div>
-                    <button onClick={this.onSendToEmail} className="fas fa-paper-plane clean-btn"></button>
-                    <button onClick={this.onRemoveNote} className="fas fa-trash clean-btn"></button>
-                </div>
+                   { emailUrl && <Link to={emailUrl}><button className="fas fa-paper-plane clean-btn"></button></Link>}
+                   {!emailUrl && <button className="fas fa-paper-plane clean-btn"></button>}
+                <button onClick={this.onRemoveNote} className="fas fa-trash clean-btn"></button>
             </div>
+            </div >
         )
     }
 

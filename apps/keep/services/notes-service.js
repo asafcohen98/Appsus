@@ -24,7 +24,6 @@ var notes = storageService.loadFromStorage(KEY) || _createNotes()
 function query(filterBy) {
     if (notes) {
         if (filterBy) {
-            console.log(filterBy)
             const { keyword, ctg } = filterBy
             // filter by all
             if(ctg === 'all') return Promise.resolve(notes)
@@ -33,8 +32,8 @@ function query(filterBy) {
             if (keyword) {
                 filteredNotes = notes.filter(note => {
                     const { title, txt, url, todos } = note.info
-                    return title.toLowerCase().includes(keyword) || txt.toLowerCase().includes(keyword) || url.includes(keyword)
-                        || todos.some(todo => todo.txt.toLowerCase().includes(keyword))
+                    return title.toLowerCase().includes(keyword) || txt.toLowerCase().includes(keyword) || url.toLowerCase().includes(keyword)
+                        || todos.some(todo => todo.txt.includes(keyword))
                 })
             }
             // filter by keyword and archive
@@ -78,7 +77,25 @@ function _createNotes() {
         isArchived: false,
         info: {
             txt: '',
-            url: 'https://images6.fanpop.com/image/photos/39900000/IMG-6250-PNG-kion-39961687-1024-577.png',
+            url: 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2015/10/12220511/puppy-800x534.jpg',
+            title: 'Me playing Mi',
+            label: '',
+            todos: []
+        },
+        style: {
+            backgroundColor: '#ffff',
+            color: '#1111',
+            fontSize: '1rem',
+        }
+    },
+    {
+        id: utilsService.makeId(),
+        type: "NoteImg",
+        isPinned: true,
+        isArchived: false,
+        info: {
+            txt: '',
+            url: 'https://images.unsplash.com/photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fG5hdHVyYWx8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80',
             title: 'Me playing Mi',
             label: '',
             todos: []
@@ -96,11 +113,15 @@ function _createNotes() {
         isArchived: false,
         info: {
             txt: '',
+            title: '',
             url: '',
             label: 'Todos',
             todos: [
-                { id: utilsService.makeId(), txt: 'lo ohev lasot dvrims dsadsadasdsaadsasdsa', doneAt: null },
-                { id: utilsService.makeId(), txt: 'Do this dsadsadasdasdadsada', doneAt: new Date() }]
+                { id: utilsService.makeId(), txt: 'Do that', doneAt: null },
+                { id: utilsService.makeId(), txt: 'Do this', doneAt: new Date() },
+                { id: utilsService.makeId(), txt: 'Finish css', doneAt: new Date() },
+                { id: utilsService.makeId(), txt: 'Go to sleep', doneAt: new Date() },
+                { id: utilsService.makeId(), txt: 'Finish animations', doneAt: new Date() }]
         },
         style: {
             backgroundColor: '#ffff',
@@ -116,7 +137,46 @@ function _createNotes() {
         info: {
             txt: '',
             url: '',
-            ytId: 'V1Pl8CzNzCw',
+            title: '',
+            ytId: 'gOMhN-hfMtY',
+            label: '',
+            todos: []
+        },
+        style: {
+            backgroundColor: '#ffff',
+            color: '#1111',
+            fontSize: '1rem',
+        }
+    },
+    {
+        id: utilsService.makeId(),
+        type: 'NoteVideo',
+        isPinned: false,
+        isArchived: false,
+        info: {
+            txt: '',
+            url: '',
+            title: '',
+            ytId: 'hRK7PVJFbS8',
+            label: '',
+            todos: []
+        },
+        style: {
+            backgroundColor: '#ffff',
+            color: '#1111',
+            fontSize: '1rem',
+        }
+    },
+    {
+        id: utilsService.makeId(),
+        type: 'NoteVideo',
+        isPinned: false,
+        isArchived: false,
+        info: {
+            txt: '',
+            url: '',
+            title: '',
+            ytId: '3PJmE-ucx_o',
             label: '',
             todos: []
         },
@@ -186,14 +246,14 @@ function updatePin(note) {
         note.isPinned = true
         notes.unshift(note)
     }
-    _saveNotesToStorage
+    _saveNotesToStorage()
     return Promise.resolve(note)
 }
 
 // That function update note archive (toggle between archive or not)
 function updateArchive(note) {
     note.isArchived = note.isArchived ? false : true
-    _saveNotesToStorage
+    _saveNotesToStorage()
     return Promise.resolve(note)
 }
 
@@ -201,7 +261,7 @@ function updateArchive(note) {
 function removeNote(note) {
     const noteIdx = notes.indexOf(note)
     notes.splice(noteIdx, 1)
-    _saveNotesToStorage
+    _saveNotesToStorage()
     return Promise.resolve()
 }
 
@@ -209,7 +269,7 @@ function removeNote(note) {
 function changeNoteColor(note, color) {
     const noteIdx = notes.indexOf(note)
     notes[noteIdx].style.backgroundColor = color
-    _saveNotesToStorage
+    _saveNotesToStorage()
     return Promise.resolve(note)
 }
 
@@ -239,7 +299,6 @@ function removeTodo(note, todo) {
 
 // That function toggle between doneAt = null to the current time (mark the todo)
 function updateDoneTodo(note, todo) {
-    if (!todo.txt) return
     const { todos } = note.info
     const todoIdx = todos.indexOf(todo)
     todos[todoIdx].doneAt = !todos[todoIdx].doneAt ? new Date() : null

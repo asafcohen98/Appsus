@@ -22,11 +22,15 @@
     margin-inline-end: 1em;
 }
 
-.note-controller .control-panel .fa-thumbtack, .control-panel .fa-check,.control-panel .fa-palette, .control-panel .fa-trash{
+.note-controller .control-panel .fa-thumbtack,
+ .control-panel .fa-check,.control-panel .fa-palette,
+  .control-panel .fa-trash,.control-panel .fa-paper-plane{
     color: rgb(14, 11, 11);
 }
 
-.note-controller .control-panel .fa-thumbtack:hover, .control-panel .fa-check:hover,.control-panel .fa-palette:hover  {
+.note-controller .control-panel .fa-thumbtack:hover,
+ .control-panel .fa-check:hover,
+ .control-panel .fa-palette:hover,.control-panel .fa-paper-plane:hover   {
     color: #76C893;
     transform: scale(1.2);
 }
