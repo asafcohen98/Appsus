@@ -2,6 +2,8 @@
 
 const { NavLink } = ReactRouterDOM
 
+import { eventBusService } from '../services/event-bus-service.js'
+
 export class AppHeader extends React.Component {
     state = {
         isNavOpen: false,

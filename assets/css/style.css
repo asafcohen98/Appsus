@@ -1,10 +1,15 @@
+/* Base */
 @import './font.css';
 @import './base.css';
 @import './helpers.css';
+
+@import './pages/home.css';
+
+/* Global Cmps */
+@import './cmps/app-header.css';
 @import './cmps/color-palette.css';
 @import './cmps/loader.css';
-@import './cmps/app-header.css';
-@import './pages/home.css';
+@import './cmps/progress-bar.css';
 
 /* font-awesome */
 @import './fontawesome/solid.css';

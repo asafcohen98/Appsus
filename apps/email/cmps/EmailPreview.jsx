@@ -25,7 +25,7 @@ export class EmailPreview extends React.Component {
         //TODO: async update isRead (with storage saving)
         this.props.email.isRead = !this.props.email.isRead
         this.setState({ isRead });
-
+        this.props.loadEmails();
     }
 
 

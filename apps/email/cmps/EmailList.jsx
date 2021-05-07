@@ -8,7 +8,7 @@ export class EmailList extends React.Component {
         // console.log(this.props)
     }
     render() {
-        const { emails } = this.props;
+        const { emails, loadEmails} = this.props;
         // const { selectedEmails } = this.state;
         return (
             <React.Fragment>
@@ -16,7 +16,7 @@ export class EmailList extends React.Component {
                     <i className={`${selectedEmails.length ? 'fas fa-minus-square' : 'far fa-square'}`}></i>
                 </div> */}
                     <div className="email-list">
-                        {emails.map(email => <EmailPreview email={email} key={email.id} />)}
+                        {emails.map(email => <EmailPreview email={email} key={email.id} loadEmails={loadEmails} />)}
                     </div>
             </React.Fragment>
         )

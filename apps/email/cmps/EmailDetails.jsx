@@ -26,7 +26,9 @@ export class EmailDetails extends React.Component {
             if (!email) return this.props.history.push('/email/inbox')
             this.setState({ email }, () => {
                 //TODO: update from service isRead to true (reading email)
-                this.state.email.isRead = !this.state.email.isRead
+                this.state.email.isRead = true;
+                //updating father for progressbar
+                this.props.loadEmails();
             })
         })
     }

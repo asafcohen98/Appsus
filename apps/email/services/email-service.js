@@ -14,6 +14,7 @@ export const emailsService = {
 }
 
 function query(filterBy) {
+    console.log(emails)
     if (emails.length) {
         if (!filterBy) return Promise.resolve(emails);
 
@@ -44,9 +45,9 @@ function query(filterBy) {
 
 function _loadEmails() {
     createEmail('adiv@get.com', 'some good looking headline', 'some body', Date.now(), true);
-    createEmail('Yossi@fun.com', 'some headline', utilsService.makeLorem(52)), Date.now();
-    createEmail('Hamuzim@fun.com', 'some headline12321321', utilsService.makeLorem(300)), Date.now();
-    createEmail('Tahini@fun.com', 'some headline', utilsService.makeLorem(100)), Date.now();
+    createEmail('Yossi@fun.com', 'some headline', utilsService.makeLorem(52), Date.now(), true);
+    createEmail('Hamuzim@fun.com', 'some headline12321321', utilsService.makeLorem(300), Date.now(), true);
+    createEmail('Tahini@fun.com', 'some headline', utilsService.makeLorem(100), Date.now(), true)
     _saveEmailsToStorage()
 }
 
