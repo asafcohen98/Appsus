@@ -40,16 +40,16 @@
     margin: 1em;
     width: 10em;
     padding: 0.6em;
-    background-color: #76c893;
+    background-color: #00B594;
     border-radius: 10px;
     transition: box-shadow .3s;
 }
 
 .add-review-container button:hover {
-    background-color: #72c08d;
+    background-color: #009E81;
     box-shadow: 0 0 5px #00000042;
 }
 
 .add-review-container button:active{
-    background-color: #6cb686;
+    background-color: #009E81;
 }

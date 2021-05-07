@@ -23,18 +23,18 @@
     border: unset;
     margin: 1em;
     padding: 0.5em 0.8em;
-    background-color: #76c893;
+    background-color: #00B594;
     border-radius: 10px;
     transition: box-shadow .3s;
 }
 
 .go-back-btn:hover {
-    background-color: #72c08d;
+    background-color: #009E81;
     box-shadow: 0 0 5px #00000042;
 }
 
 .go-back-btn:active {
-    background-color: #6cb686;
+    background-color: #009E81;
 }
 
 .book-details .img-container {
@@ -100,7 +100,7 @@
 }
 
 .low-price {
-    color: #76C893;
+    color: #00B594;
 }
 
 .book-details p {
@@ -123,10 +123,10 @@
     font-family: Ralewery-Regular;
     cursor: pointer;
     text-decoration: underline;
-    color: #72c08d;
+    color: #00B594;
     transition: color .3s;
 }
 
 .book-details .book-details-desc span:hover {
-    color: #76c893;
+    color: #009E81;
 }

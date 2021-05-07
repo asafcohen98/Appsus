@@ -32,11 +32,11 @@
     border:none;
     top: 0;
     right: 0;
-    color:#76C893;
+    color:#00B594;
 }
 
 .review-list .review button:hover{
-    color: #58ce81;
+    color: #009E81;
 }
 
 .review-list .review .review-desc {

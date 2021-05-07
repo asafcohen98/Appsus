@@ -27,7 +27,7 @@
 .email-details-info {
     display: flex;
     justify-content: space-between;
-    box-shadow: inset 0px -1px 1px 0px #76c893;
+    box-shadow: inset 0px -1px 1px 0px #00B594;
     clip-path: inset(0px 1px 0px 1px);
     padding: 1px;
     margin-bottom: 1em;

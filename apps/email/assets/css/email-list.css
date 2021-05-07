@@ -28,17 +28,18 @@
 /* Handle */
 
 .email-list::-webkit-scrollbar-thumb {
-    background-color: #76c893;
+    background-color:#00B594;
+    border-radius: 3rem;
 }
 
 /* Handle on hover */
 
 .email-list::-webkit-scrollbar-thumb:hover {
-    background-color: #6cb686;
+    background-color: #009E81;
     /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.192); */
 }
 
 .email-list::-webkit-scrollbar-thumb:active{
-    background-color: #62a579;
+    background-color:#009E81;
     box-shadow: inset 0 0 3px rgba(78, 78, 78, 0.287);
 }

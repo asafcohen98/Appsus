@@ -31,12 +31,12 @@
 .note-controller .control-panel .fa-thumbtack:hover,
  .control-panel .fa-check:hover,
  .control-panel .fa-palette:hover,.control-panel .fa-paper-plane:hover   {
-    color: #76C893;
+    color: #00B594;
     transform: scale(1.2);
 }
 
 .note-controller .control-panel .fa-thumbtack.active, .control-panel .fa-check.active,.control-panel .fa-palette.active  {
-    color: #76C893;
+    color: #00B594;
     transform: scale(1.2);
 }
 

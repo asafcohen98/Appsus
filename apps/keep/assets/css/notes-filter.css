@@ -29,7 +29,7 @@
 }
 
 .filter-container .search i {
-    color: #76C893;
+    color: #00B594;
     font-size: 1.4em;
 }
 
@@ -54,7 +54,7 @@
 
 .filter-container .select:after {
     content: "\f13a";
-    color: #76C893;
+    color: #00B594;
     font-size: 1.4em;
     font-family: FontAwesome-Solid;
     padding: 8px;

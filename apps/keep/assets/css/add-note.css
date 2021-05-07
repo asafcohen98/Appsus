@@ -4,7 +4,7 @@
     align-items: center;
     padding: 1rem;
     border-radius: 2.5rem;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .add-note form {
@@ -30,13 +30,13 @@
     border-radius: 3rem;
     padding: 0.2em 0.4em;
     border: none;
-    color: #76C893;
+    color: #00B594;
     font-size: 2em;
     transition: color 0.3s;
 }
 
 .add-note button:hover {
-    color: #58ce81;
+    color: #009E81;
 }
 
 .add-note .fa-font, .add-note .fa-image, .add-note .fa-list-ul, .add-note .fa-youtube {
@@ -56,11 +56,11 @@
 }
 
 .add-note .fa-font:hover, .add-note .fa-image:hover, .add-note .fa-list-ul:hover, .add-note .fa-youtube:hover {
-    color: #76C893;
+    color: #00B594;
 }
 
 .add-note .fa-font.active-type, .add-note .fa-image.active-type, .add-note .fa-list-ul.active-type, .add-note .fa-youtube.active-type {
-    color: #76C893;
+    color: #00B594;
     transform: scale(1.2);
 }
 
@@ -69,19 +69,15 @@
         flex-direction: unset;
         justify-content: flex-start;
     }
-
-    .add-note>*:not(:last-child){
+    .add-note>*:not(:last-child) {
         margin-inline-end: 2rem;
     }
-
     .add-note form {
         align-items: center;
     }
-
-    .add-note input{
+    .add-note input {
         width: 300px;
     }
-
     .note-type-container {
         justify-content: flex-start;
     }
