@@ -32,7 +32,7 @@ export class EmailPreview extends React.Component {
     render() {
         const { id, isRead, subject, sentAt, towards, isChecked } = this.props.email;
         return (
-            <Link to={`/email/${id}`}>
+            <Link to={`/email/inbox/${id}`}>
                 <article className={` email-preview ${isRead ? 'read' : ''} ${isChecked ? 'selected' : ''} `}>
                     <i onClick={this.toggleCheck}
                         className={`${!isChecked ? 'far fa-square' : 'fas fa-check-square'}`}></i>

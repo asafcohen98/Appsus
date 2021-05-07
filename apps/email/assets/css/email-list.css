@@ -5,12 +5,12 @@
 
 .email-list {
     height: 89.3vh;
-    width: 90vw;
+    width: 88vw;
     overflow: scroll;
     overflow-x: hidden;
-
     position: absolute;
     right: 0;
+    padding-inline-end: 2em;
 }
 
 /* width */

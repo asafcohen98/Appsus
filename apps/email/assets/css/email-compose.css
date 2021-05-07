@@ -77,13 +77,18 @@
     flex-grow: 1;
 }
 
+.email-compose form button .fa-paper-plane{
+    font-size: 1em;
+    margin-inline-end: 0.5em;
+}
+
 .email-compose form button {
     font-family: Raleway-Regular;
     letter-spacing: 1px;
     font-weight: bold;
     border: unset;
     margin: 1em;
-    width: 5em;
+    width: 8em;
     padding: 1em;
     background-color: #76c893;
     border-radius: 10px;

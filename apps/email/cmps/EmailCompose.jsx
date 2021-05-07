@@ -1,4 +1,5 @@
-import {emailsService} from '../services/email-service.js'
+import { emailsService } from '../services/email-service.js'
+
 export class EmailCompose extends React.Component {
 
     state = {
@@ -9,7 +10,13 @@ export class EmailCompose extends React.Component {
             sentAt: 0
         }
     }
-    
+    componentDidMount() {
+        const {emailContent} = this.props;
+        if (emailContent) {
+            this.setState({emailContent: {...emailContent}}, console.log(this.state.emailContent))
+        }
+    }
+
     handleChange = (ev) => {
         const { emailContent } = this.state;
         const value = ev.target.value;
@@ -25,38 +32,44 @@ export class EmailCompose extends React.Component {
 
         emailContent = { ...emailContent, sentAt: Date.now() };
 
-        emailsService.addEmail(emailContent).then(()=> {
-            this.props.loadEmails()
-            this.props.history.push('/email/inbox')
+        emailsService.addEmail(emailContent).then(() => {
+            this.props.loadEmails();
+            this.props.hideCompose();
         });
     }
 
 
     render() {
+        const {towards, subject, body} = this.state.emailContent
+
+
         return (
             <div className="email-compose">
                 <div className="email-compose-head">
                     <span>
                         New Message
                     </span>
-                    <i onClick={() => this.props.history.push('/email/inbox')} className="fas fa-times"></i>
+                    <i onClick={() => this.props.hideCompose()} className="fas fa-times"></i>
                 </div>
 
                 <form action="" onSubmit={this.onAddEmail}>
                     <div className="email-compose-field compose-to">
                         <span>To:</span>
-                        <input required name="towards" type="email" onChange={this.handleChange} />
+                        <input required value={towards} name="towards" type="email" onChange={this.handleChange} />
                     </div>
 
                     <div className="email-compose-field compose-subject">
                         <span>Subject:</span>
-                        <input required name="subject" type="text" onChange={this.handleChange} />
+                        <input required value={subject} name="subject" type="text" onChange={this.handleChange} />
                     </div>
 
-                    <textarea className="email-compose-body" name="body" type="text"
+                    <textarea className="email-compose-body" value={body} name="body" type="text"
                         style={{ width: '100%' }} onChange={this.handleChange} />
 
-                    <button>Send</button>
+                    <button>
+                        <i className="fas fa-paper-plane"></i>
+                        Send
+                    </button>
                 </form>
             </div>
         )

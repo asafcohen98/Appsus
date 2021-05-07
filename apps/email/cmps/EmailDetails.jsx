@@ -13,13 +13,13 @@ export class EmailDetails extends React.Component {
     componentDidMount() {
         this.loadEmail();
     }
-    
+
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.emailId !== this.props.match.params.emailId) {
             this.loadEmail();
         }
     }
-    
+
     loadEmail = () => {
         const id = this.props.match.params.emailId;
         emailsService.getEmailById(id).then(email => {
@@ -38,10 +38,15 @@ export class EmailDetails extends React.Component {
             <section className="email-details">
 
                 <h1>{subject}</h1>
-                <p className="email-details-sender">{towards.split('@')[0]}</p>
-                <p>{towards}</p>
-                <p>{body}</p>
-                <small className="email-details-date">{new Date(sentAt).toLocaleString('en-GB' ,{ hour12: false })}</small>
+                <div className="email-details-info">
+                    <p>
+                    From: 
+                        <span className="email-details-sender">{towards.split('@')[0]} </span>
+                        <span>{`<${towards}>`}</span>
+                    </p>
+                    <small className="email-details-date">{new Date(sentAt).toLocaleString('en-GB', { hour12: false })}</small>
+                </div>
+                <p className="email-details-body">{body}</p>
             </section>
         )
     }

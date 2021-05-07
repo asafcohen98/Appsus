@@ -5,7 +5,7 @@ import { utilsService } from '../../../services/utils-service.js'
 const KEY = 'emailsDB'
 var emails = storageService.loadFromStorage(KEY) || []
 
-
+var filteredEmails;
 
 export const emailsService = {
     query,
@@ -15,52 +15,49 @@ export const emailsService = {
 
 function query(filterBy) {
     if (emails.length) {
-        if (filterBy) {
-            const { keyword } = filterBy
-            const filteredEmails = emails.filter(email => {
-                return email.subject.includes(keyword) || email.body.includes(keyword)
+        if (!filterBy) return Promise.resolve(emails);
+
+        const { keyword, categories } = filterBy;
+        
+        if (categories === 'read') {
+            filteredEmails = emails.filter(email => { return email.isRead });
+        } else if (categories === 'unread') {
+            filteredEmails = emails.filter(email => { return !email.isRead });
+        } else filteredEmails = emails; //category 'all'
+
+        if (keyword) {
+            let emailsRes;
+            (filteredEmails.length) ? emailsRes = filteredEmails : emailsRes = emails;
+
+            filteredEmails = emailsRes.filter(email => {
+                return email.towards.toLowerCase().includes(keyword) ||
+                email.subject.toLowerCase().includes(keyword) ||
+                email.body.toLowerCase().includes(keyword)
             })
-            return Promise.resolve(filteredEmails)
         }
-        return Promise.resolve(emails)
+
+        if (filteredEmails) return Promise.resolve(filteredEmails);
     }
     _loadEmails()
     return Promise.resolve(emails)
 }
 
 function _loadEmails() {
-    createEmail('adiv@get.com', 'some good looking headline', 'some body', true);
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    createEmail('adiv@fun.com', 'some headline', utilsService.makeLorem(15));
-    _saveEmailsToStorage()   
+    createEmail('adiv@get.com', 'some good looking headline', 'some body', Date.now(), true);
+    createEmail('Yossi@fun.com', 'some headline', utilsService.makeLorem(52)), Date.now();
+    createEmail('Hamuzim@fun.com', 'some headline12321321', utilsService.makeLorem(300)), Date.now();
+    createEmail('Tahini@fun.com', 'some headline', utilsService.makeLorem(100)), Date.now();
+    _saveEmailsToStorage()
 }
 
 function addEmail(emailContent) {
-    const {towards, subject, body, sentAt} = emailContent;
+    const { towards, subject, body, sentAt } = emailContent;
     createEmail(towards, subject, body, sentAt);
     _saveEmailsToStorage();
     return Promise.resolve()
 }
 
-function createEmail(towards, subject, body, sentAt = Date.now(),  isRead = false) {
+function createEmail(towards, subject, body, sentAt = Date.now(), isRead = false) {
     emails.unshift({
         id: utilsService.makeId(),
         isRead,
@@ -76,11 +73,6 @@ function getEmailById(emailId) {
     const email = emails.find(email => emailId === email.id)
     return Promise.resolve(email)
 }
-
-// function checkBookExist(googleBook) {
-//     const isBookExist = books.some(book => book.id === googleBook.id)
-//     return Promise.resolve(isBookExist)
-// }
 
 function _saveEmailsToStorage() {
     storageService.saveToStorage(KEY, emails)

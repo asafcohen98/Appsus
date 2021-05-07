@@ -1,27 +1,45 @@
-
-
 .email-details {
     height: 89.3vh;
-    width: 90vw;
-
+    width: 88vw;
     position: absolute;
     right: 0;
-    display: flex;
-    flex-direction: column;
+    padding-inline-end: 3rem;
 }
 
+/* .email-details {
+    height: 89.3vh;
+    width: 70vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 0px -1px 1px 0px #76c893;
+    clip-path: inset(0px 1px 0px 1px);
+    padding-top: 1em;
+} */
+
 .email-details h1{
+    width: fit-content;
     font-family: Raleway-Regular;
     font-size: 30px;
+    margin-bottom: 0.3em;
+}
+
+.email-details-info {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: inset 0px -1px 1px 0px #76c893;
+    clip-path: inset(0px 1px 0px 1px);
+    padding: 1px;
+    margin-bottom: 1em;
 }
 
 .email-details-sender {
     font-size: 20px;
     font-family: Raleway-Regular;
+    margin-inline-start: 0.2em;
 }
 
 
-.email-details-date {
-    align-self: flex-end;
-    margin-inline-end: 3em;
+.email-details-body {
+    max-width: 80ch;
 }
