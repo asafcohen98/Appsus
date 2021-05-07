@@ -45,7 +45,7 @@ export class MissKeep extends React.Component {
         const { notes, isPinnedNotes, pinnedNotes } = this.state
         if (!notes) return <Loader />
         return (
-            <section className="keep-app container">
+            <section className="keep-app">
                 <div className="keep-tools-container">
                     <NotesFilter onSetFilter={this.onSetFilter} />
                     <AddNote loadNotes={this.loadNotes} />

@@ -1,0 +1,38 @@
+.book-preview {
+    font-family: Raleway-Regular;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(166, 173, 201, 0.2);
+    border-radius: 1rem;
+    transition: transform .5s ease-in-out;
+}
+
+.book-preview:hover {
+    transform: translateY(-2%);
+}
+
+.book-preview:hover img{
+    filter: invert(20%);
+}
+
+.book-preview img {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    width: 100%;
+    transition: filter .3s ease-in-out;
+    margin-bottom: 1rem;
+}
+
+.book-preview h1 {
+    font-size: 1.5rem;
+    margin: 0 0 1rem;
+    padding: 0 1rem;
+}
+
+.book-preview h2 {
+    margin: 0 0 1rem;
+}

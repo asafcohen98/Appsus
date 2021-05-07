@@ -507,7 +507,7 @@ function removeReview(book, idx) {
 
 function getGoogleBooks(searchRes) {
   return axios
-    .get(`https://www.googleapis.com/books/v1/volumes?printType=books&q=effective%20${searchRes}`)
+    .get(`https://www.googleapis.com/books/v1/volumes?printType=books&q=effective%5${searchRes}`)
     .then(res => {
       const { items } = res.data
       return items.map(item => {
@@ -528,7 +528,7 @@ function getGoogleBooks(searchRes) {
           isOnSale: Math.random() > 0.5,
           thumbnail: item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : ''
         }
-      })
+      }).splice(0,4)
     })
 }
 

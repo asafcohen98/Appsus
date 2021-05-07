@@ -1,6 +1,3 @@
-
-
-
 /* FONT FACE - SELECT SYMBOL */
 
 @font-face {
@@ -9,8 +6,10 @@
 }
 
 /* // */
-.filter-container{
-    background-color: rgb(228, 228, 228);
+
+.filter-container {
+    background-color: rgb(238, 238, 238);
+    box-shadow: inset -1px -4px 1px #0000000d;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -18,7 +17,7 @@
     border-radius: 2.5rem;
 }
 
-.filter-container .search{
+.filter-container .search {
     position: relative;
     display: flex;
     flex: 1;
@@ -27,52 +26,60 @@
     align-items: center;
     box-shadow: 0px 0px 2px 0px #00000057;
     margin-inline-end: 1em;
-    
 }
 
 .filter-container .search i {
-    color:#76C893;
+    color: #76C893;
     font-size: 1.4em;
 }
+
 .filter-container .select {
-    overflow: hidden; 
+    overflow: hidden;
     position: relative;
     display: flex;
     align-items: center;
 }
 
-.filter-container  select{     
-    background-color: transparent;  
+.filter-container select {
+    background-color: transparent;
     height: 40px;
     padding: 5px;
     border: 0;
     width: 100px;
-    font-size: 16px;       
+    font-size: 16px;
     appearance: none;
+    width: 30px;
+
 }
 
 .filter-container .select:after {
-    content:"\f13a";
+    content: "\f13a";
     color: #76C893;
     font-size: 1.4em;
     font-family: FontAwesome-Solid;
     padding: 8px;
     position: relative;
     text-align: center;
-    height: 100%;      
+    height: 100%;
     pointer-events: none;
-    box-sizing: border-box;   
+    box-sizing: border-box;
 }
 
-
 .filter-container input {
-    background-color:transparent;
+    background-color: transparent;
     margin-inline-end: 0.5rem;
     padding: 1em 1em 1em 1em;
     width: 200px;
 }
 
-.filter-container .fa-search{
+.filter-container .fa-search {
     position: absolute;
     right: 1em;
+}
+
+
+@media (min-width:630px){
+    .filter-container select{
+        width: 100px; 
+    }
 }

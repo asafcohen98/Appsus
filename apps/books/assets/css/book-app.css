@@ -1,0 +1,15 @@
+@import './book-filter.css';
+@import './add-book.css';
+@import './book-list.css';
+@import './book-preview.css';
+@import'./book-details.css';
+@import './book-reviews.css';
+@import './add-review.css';
+@import './rating-stars.css';
+@import './review-list.css';
+
+.book-app {
+    font-family: Roboto-light;
+    color: #212529;
+    height: 90vh;
+}

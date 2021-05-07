@@ -19,12 +19,12 @@ export class BookDetails extends React.Component {
         this.loadBook()
     }
 
-    
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.match.params.bookId !== this.props.match.params.bookId) {
-      this.loadBook()
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.match.params.bookId !== this.props.match.params.bookId) {
+            this.loadBook()
+        }
     }
-  }
 
 
     loadBook = () => {
@@ -68,7 +68,7 @@ export class BookDetails extends React.Component {
         return isOnSale
     }
 
-   
+
     toggleIsShown = () => {
         console.log('active')
         this.setState({ isLongTxtShown: !this.state.isLongTxtShown })
@@ -79,35 +79,39 @@ export class BookDetails extends React.Component {
     render() {
         const { book, isLongTxtShown } = this.state
         if (!book) return <div>Loading...</div>
-        const { thumbnail, pageCount, publishedDate, title, subtitle,listPrice, description ,id} = book
+        const { thumbnail, pageCount, publishedDate, title, subtitle, listPrice, description, id } = book
         return (
-            <div className="book-details">
-                <button className="go-back-btn" onClick={() => this.props.history.push('/book')}>Go back</button>
-                <div className="img-container">
-                    <img src={thumbnail} alt="" />
-                    {this.checkIfSale(listPrice.isOnSale) ? <span>On sale</span> : ''}
+            <section className="book-details-container container">
+                <div className="book-details">
+                    <div className="img-container">
+                        <img src={thumbnail} alt="" />
+                        {this.checkIfSale(listPrice.isOnSale) ? <span>On sale</span> : ''}
+                    </div>
+                    <ul className="book-categories">
+                        {this.setPageType(pageCount) ? <li>{this.setPageType(pageCount)}</li> : ''}
+                        {this.setPublishedDate(publishedDate) ? <li>{this.setPublishedDate(publishedDate)}</li> : ''}
+                        {book.categories ? book.categories.map((category, idx) => <li key={idx}>{category}</li>) : ''}
+                    </ul>
+                    <h1>{title}</h1>
+                    <h2>{subtitle}</h2>
+                    <h2>{book.authors ? `Author: ${book.authors.join(', ')}` : ''}</h2>
+                    <h2 className={this.setPriceClassName(listPrice.amount)}>
+                        {utilsService.getCurrencySymbol(listPrice.currencyCode) + listPrice.amount}
+                    </h2>
+                    <LongTxt isShown={isLongTxtShown} txt={description} toggleIsShown={this.toggleIsShown}></LongTxt>
+                    {description.length > 100 && <React.Fragment>
+                    </React.Fragment>
+                    }
+                        <Link to={`/book/${booksService.getNextBookId(id)}`}>Next book</Link>
+                        <button className="go-back-btn" onClick={() => this.props.history.push('/book')}>Go back</button>
                 </div>
-                <ul className="book-categories">
-                    {this.setPageType(pageCount) ? <li>{this.setPageType(pageCount)}</li> : ''}
-                    {this.setPublishedDate(publishedDate) ? <li>{this.setPublishedDate(publishedDate)}</li> : ''}
-                    {book.categories ? book.categories.map((category, idx) => <li key={idx}>{category}</li>) : ''}
-                </ul>
-                <h1>{title}</h1>
-                <h2>{subtitle}</h2>
-                <h2>{book.authors ? `Author: ${book.authors.join(', ')}` : ''}</h2>
-                <h2 className={this.setPriceClassName(listPrice.amount)}>
-                    {utilsService.getCurrencySymbol(listPrice.currencyCode) + listPrice.amount}
-                </h2>
-                <LongTxt isShown={isLongTxtShown} txt={description} toggleIsShown={this.toggleIsShown}></LongTxt>
-                {description.length > 100 && <React.Fragment>
-                </React.Fragment>
-                }
+                <div className="book-reviews">
                 <ReviewAdd book={book} loadBook={this.loadBook} />
 
                 { book.reviews && <ReviewList book={book} loadBook={this.loadBook} />}
-                <Link  to={`/book/${booksService.getNextBookId(id)}`}>Next book</Link>
+                </div>
+            </section>
 
-            </div>
         )
     }
 }

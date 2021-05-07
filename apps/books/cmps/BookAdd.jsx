@@ -45,7 +45,7 @@ export class BookAdd extends React.Component {
     render() {
         const { resOptions, searchRes, newBook } = this.state
         return (
-            <section className="add-book-container">
+            <section className="add-book container">
                 <label htmlFor="search-book"></label>
                 <input type="search" id="search-book" ref={this.inputRef} placeholder="Search for a book" onChange={this.handleChange} />
                 {(searchRes && resOptions) && <ResultOptions resOptions={resOptions} onAddGoogleBook={this.onAddGoogleBook} />}

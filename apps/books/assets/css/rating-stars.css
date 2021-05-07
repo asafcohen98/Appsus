@@ -1,0 +1,43 @@
+
+.star-rate {
+    display: flex;
+    justify-content:center;
+    flex-direction: row-reverse;
+    margin-bottom: 1em;
+    /* background-color: ; */
+}
+.star-rate input {
+    display: none;
+}
+.star-rate label {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    transition: color .5s;
+}
+.star-rate label:hover, .star-rate label:hover~label {
+    /* color: #fd4; */
+    color: #FDCC0D;
+}
+.star-rate label:not(:last-of-type) {
+    margin-inline-end: 5px;
+}
+.star-rate label.star-active {
+    color: #FDCC0D;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

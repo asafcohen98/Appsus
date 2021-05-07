@@ -51,6 +51,7 @@ export class NoteTodos extends React.Component {
     }
 
     toggleDoneTodo = (todo) => {
+        if (!todo.txt) return
         const { note, loadNote } = this.props
         const { todos } = this.state
         notesService.updateDoneTodo(note, todo).then(newTodos => {

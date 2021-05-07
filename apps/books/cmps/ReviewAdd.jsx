@@ -50,7 +50,7 @@ export class ReviewAdd extends React.Component {
                     </label>
                     <RatingStars rate={rate} handleChange={this.handleChange} isPreview={false} />
                     <label htmlFor="text"></label>
-                    <textarea name="text" id="text" cols="30" rows="10" onChange={this.handleChange} />
+                    <textarea placeholder="Enter review here" name="text" id="text" cols="30" rows="10" onChange={this.handleChange} />
                     <button>Send review</button>
                 </form>
             </section>

@@ -1,0 +1,132 @@
+
+.book-details-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.book-details {
+    font-family: Raleway-light;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.go-back-btn {
+    color: #ffff;
+    letter-spacing: 1px;
+    font-size: 1em;
+    border: unset;
+    margin: 1em;
+    padding: 0.5em 0.8em;
+    background-color: #76c893;
+    border-radius: 10px;
+    transition: box-shadow .3s;
+}
+
+.go-back-btn:hover {
+    background-color: #72c08d;
+    box-shadow: 0 0 5px #00000042;
+}
+
+.go-back-btn:active {
+    background-color: #6cb686;
+}
+
+.book-details .img-container {
+    max-width: 500px;
+    height: 400px;
+    display: flex;
+    position: relative;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(166, 173, 201, 0.2);
+}
+
+.book-details .img-container span {
+    position: absolute;
+    font-family: Roboto-bold;
+    text-transform: uppercase;
+    background-color: #d90429;
+    bottom: 0.5em;
+    right: 1em;
+    padding: 0.2em 0.5em;
+    box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(166, 173, 201, 0.2);
+}
+
+.book-details .img-container img {
+    object-fit: cover;
+}
+
+.book-categories {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 0 0;
+    color: rgba(58, 57, 57, 0.616);
+}
+
+.book-categories>*:not(:last-child) {
+    margin-inline-end: .5rem;
+}
+
+.book-details h1, h2, p {
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.book-details h1 {
+    font-family: Raleway-Regular;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.book-details h2:first-of-type {
+    font-size: 1rem;
+}
+
+.book-details h2:last-of-type {
+    font-family: Raleway-Regular;
+    font-size: 1.5rem;
+}
+
+.high-price {
+    color: #e65555;
+}
+
+.low-price {
+    color: #76C893;
+}
+
+.book-details p {
+    display: inline;
+    display: flex;
+    flex-direction: column;
+    font-family: Roboto-regular;
+}
+
+.book-details button {
+    margin-bottom: 2rem;
+}
+
+.book-details .book-details-desc {
+    font-family: Ralewery-Regular;
+    max-width: 50ch;
+}
+
+.book-details .book-details-desc span {
+    font-family: Ralewery-Regular;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #72c08d;
+    transition: color .3s;
+}
+
+.book-details .book-details-desc span:hover {
+    color: #76c893;
+}

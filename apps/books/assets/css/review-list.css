@@ -1,0 +1,50 @@
+.review-list {
+    font-family: Raleway-Regular;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.review-list h1 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.review-list .review {
+    text-align: center;
+    position: relative;
+    display: flex;
+    min-width: 200px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-list .review>*:not(button){
+    margin-bottom: 1em;
+}
+
+.review-list .review button{
+    position: absolute;
+    font-size: 1.2em;
+    background-color: transparent;
+    border:none;
+    top: 0;
+    right: 0;
+    color:#76C893;
+}
+
+.review-list .review button:hover{
+    color: #58ce81;
+}
+
+.review-list .review .review-desc {
+    display: flex;
+    width: 100%;
+}
+
+.review-list .review .review-desc p {
+    max-width: 200px;
+    word-wrap: break-word;
+}
