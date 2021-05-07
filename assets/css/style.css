@@ -1,6 +1,8 @@
 @import './font.css';
 @import './base.css';
 @import './helpers.css';
+@import './cmps/color-palette.css';
+@import './cmps/loader.css';
 @import './cmps/app-header.css';
 @import './pages/home.css';
 

@@ -3,7 +3,6 @@
     display: flex;
     align-items: center;
     padding: 1rem;
-    margin: 2rem 0;
     border-radius: 2.5rem;
 }
 
@@ -34,20 +33,25 @@
     border: none;
     color: #76C893;
     font-size: 2em;
+    transition: color 0.3s;
 }
 
-.add-note .fa-font, .fa-image, .fa-list-ul {
+.add-note button:hover{
+    color: #58ce81;
+}
+
+.add-note .fa-font,.add-note .fa-image,.add-note .fa-list-ul {
     cursor: pointer;
     color: #212529;
     font-size: 1.5em;
     transition: all 0.3s;
 }
 
-.add-note .fa-font:hover, .fa-image:hover, .fa-list-ul:hover {
+.add-note .fa-font:hover,.add-note .fa-image:hover,.add-note .fa-list-ul:hover {
     color: #76C893;
 }
 
-.add-note .fa-font.active-type, .fa-image.active-type, .fa-list-ul.active-type {
+.add-note .fa-font.active-type,.add-note .fa-image.active-type,.add-note .fa-list-ul.active-type {
     color: #76C893;
     transform: scale(1.2);
 }

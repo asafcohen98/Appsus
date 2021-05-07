@@ -10,9 +10,17 @@ export class NoteTodos extends React.Component {
     }
 
     componentDidMount() {
+        const { note } = this.props
         let { info: { todos, label } } = this.props.note
-        if (!label) label = `Created at: ${this.getCurrTime(new Date())}`
-        this.setState({ todos: todos, label: label })
+        if (!label) {
+            label = `Created at: ${this.getCurrTime(new Date())}`
+            notesService.updateNoteLabel(note, label).then(newLabel => {
+                console.log(newLabel)
+                this.setState({ todos, label: newLabel })
+            })
+        } else {
+            this.setState({ todos, label, })
+        }
     }
 
     getCurrTime = (doneAt) => {
@@ -23,7 +31,7 @@ export class NoteTodos extends React.Component {
     onRemoveTodo = (todo) => {
         if (!this.state.todos) return
         const { note, loadNote } = this.props
-        notesService.removeTodo(note, todo).then((newTodos) => {
+        notesService.removeTodo(note, todo).then(newTodos => {
             this.setState({ todos: newTodos }, () => loadNote())
         })
     }
@@ -45,13 +53,17 @@ export class NoteTodos extends React.Component {
     toggleDoneTodo = (todo) => {
         const { note, loadNote } = this.props
         const { todos } = this.state
-        notesService.updateDoneTodo(note, todo).then((newTodos) => {
+        notesService.updateDoneTodo(note, todo).then(newTodos => {
             this.setState({ todos: newTodos }, () => loadNote())
         })
     }
 
-    onAddTodo = () =>{
-
+    onAddTodo = () => {
+        const { note, loadNote } = this.props
+        const { todos } = this.state
+        notesService.addTodo(note).then(todos => {
+            this.setState({ todos: todos }, () => loadNote())
+        })
     }
 
     render() {
@@ -59,32 +71,28 @@ export class NoteTodos extends React.Component {
         return (
             <div className="todos-container">
                 <div className="todos-title">
-                    <button className="fas fa-plus-circle clean-btn " onClick={() => this.onAddTodo}></button>
+                    <button className="fas fa-plus-circle clean-btn " onClick={() => this.onAddTodo()}></button>
                     {todos.length ? <h2>{label}</h2> : <h2>No todos</h2>}
                 </div>
                 <ul className="clean-list">
                     {todos.map(todo => {
                         if (todo.doneAt) {
                             return <li key={todo.id}>
-                                <i onClick={() => this.toggleDoneTodo(todo)} className="fas fa-check-circle"></i>
+                                <button onClick={() => this.toggleDoneTodo(todo)} className="fas fa-check-circle clean-btn"></button>
                                 <textarea className="text-muted" spellCheck="false" value={todo.txt} readOnly>
                                 </textarea >
                                 <div className="todo-done-at">
                                     <span>{this.getCurrTime(todo.doneAt)[0]}</span>
                                     <span>{this.getCurrTime(todo.doneAt)[1]}</span>
                                 </div>
-                                <button onClick={() => this.onRemoveTodo(todo)}>
-                                    <i className="fas fa-trash"></i>
-                                </button>
+                                <button onClick={() => this.onRemoveTodo(todo)} className="fas fa-trash clean-btn"></button>
                             </li>
                         } else {
                             return <li key={todo.id}>
-                                <i onClick={() => this.toggleDoneTodo(todo)} className="fas fa-circle"></i>
+                                <button onClick={() => this.toggleDoneTodo(todo)} className="fas fa-circle clean-btn"></button>
                                 <textarea spellCheck="false" value={todo.txt} onBlur={this.saveChanges} onChange={(ev) => this.handleChange(ev, todo)}>
                                 </textarea >
-                                <button onClick={() => this.onRemoveTodo(todo)}>
-                                    <i className="fas fa-trash"></i>
-                                </button>
+                                <button onClick={() => this.onRemoveTodo(todo)} className="fas fa-trash clean-btn"></button>
                             </li>
                         }
                     })}
