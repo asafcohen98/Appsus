@@ -8,6 +8,7 @@ export class AddNote extends React.Component {
         noteInfo: {
             txt: '',
             url: '',
+            ytId: '',
             title: '',
             label: '',
             todos: []
@@ -15,7 +16,7 @@ export class AddNote extends React.Component {
     }
 
     componentDidMount() {
-        if(!this.state.noteTxt) this.inputRef.current.focus()
+        if (!this.state.noteTxt) this.inputRef.current.focus()
     }
 
     inputRef = React.createRef()
@@ -28,6 +29,8 @@ export class AddNote extends React.Component {
                 return 'Enter image URL...'
             case 'NoteTodos':
                 return 'Enter comma separated list...'
+            case 'NoteVideo':
+                return 'Enter youtube URL...'
         }
     }
 
@@ -36,6 +39,8 @@ export class AddNote extends React.Component {
         const notesRegTest = /([a-z].)+,/i
         switch (noteType) {
             case 'NoteImg':
+                return urlRegTest.test(txtInput)
+            case 'NoteVideo':
                 return urlRegTest.test(txtInput)
             case 'NoteTodos':
                 return notesRegTest.test(txtInput)
@@ -60,7 +65,7 @@ export class AddNote extends React.Component {
         if (noteType === 'NoteImg') {
             this.setState({ noteInfo: { ...noteInfo, url: txtInput } }, () => {
                 notesService.createNote(noteType, this.state.noteInfo).then(() => {
-                    this.resetState()
+                    // this.resetState()
                     loadNotes()
                 })
             })
@@ -69,6 +74,16 @@ export class AddNote extends React.Component {
             let todos = txtInput.split(',')
             todos = todos.map(todo => ({ id: utilsService.makeId(), txt: todo, doneAt: null }))
             this.setState({ noteInfo: { ...noteInfo, todos: todos } }, () => {
+                notesService.createNote(noteType, this.state.noteInfo).then(() => {
+                    this.resetState()
+                    loadNotes()
+                })
+            })
+        } else if (noteType === 'NoteVideo') {
+            const ytRegex = "^(?:https?:)?//[^/]*(?:youtube(?:-nocookie)?\.com|youtu\.be).*[=/]([-\\w]{11})(?:\\?|=|&|$)";
+            const ytUrl = txtInput.match(ytRegex)
+            // take the yt id 
+            this.setState({ noteInfo: { ...noteInfo, ytId: ytUrl[1] } }, () => {
                 notesService.createNote(noteType, this.state.noteInfo).then(() => {
                     this.resetState()
                     loadNotes()
@@ -109,6 +124,7 @@ export class AddNote extends React.Component {
                 </form>
                 <i onClick={() => this.onSelectType('NoteText')} className={`fas fa-font ${noteType === 'NoteText' ? 'active-type' : ''} `}></i>
                 <i onClick={() => this.onSelectType('NoteImg')} className={`far fa-image ${noteType === 'NoteImg' ? 'active-type' : ''}`}></i>
+                <i onClick={() => this.onSelectType('NoteVideo')} className={`fab fa-youtube ${noteType === 'NoteVideo' ? 'active-type' : ''}`}></i>
                 <i onClick={() => this.onSelectType('NoteTodos')} className={`fas fa-list-ul ${noteType === 'NoteTodos' ? 'active-type' : ''}`}></i>
             </div>
         )

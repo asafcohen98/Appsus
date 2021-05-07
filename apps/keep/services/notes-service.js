@@ -67,7 +67,7 @@ function _createNotes() {
             todos: []
         },
         style: {
-            backgroundColor: 'green',
+            backgroundColor: '#ffff',
             color: '#1111',
             fontSize: '1rem',
         }
@@ -115,7 +115,8 @@ function _createNotes() {
         isArchived: false,
         info: {
             txt: '',
-            url: 'https://www.youtube.com/embed/gOMhN-hfMtY',
+            url: '',
+            ytId: 'V1Pl8CzNzCw',
             label: '',
             todos: []
         },

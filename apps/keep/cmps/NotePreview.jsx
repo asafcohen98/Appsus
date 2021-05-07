@@ -34,7 +34,7 @@ export class NotePreview extends React.Component {
                 return 'fas fa-image'
             case 'NoteTodos':
                 return 'fas fa-list-ul'
-            case 'NoteTodos':
+            case 'NoteVideo':
                 return 'fab fa-youtube'
             default:
                 return 'no icon'

@@ -30,9 +30,7 @@ export class MissKeep extends React.Component {
         let isPinnedNotes = notes.some(note => note.isPinned)
         if (isPinnedNotes) {
             const pinnedNotes = notes.filter(note => note.isPinned)
-            console.log('pinnedNotes:', pinnedNotes)
             const newNotes = notes.filter(note => !note.isPinned)
-            console.log('newNotes:', newNotes)
             this.setState({ notes: newNotes, pinnedNotes: pinnedNotes, isPinnedNotes })
         } else {
             this.setState({ notes: notes, isPinnedNotes: false, pinnedNotes: null })

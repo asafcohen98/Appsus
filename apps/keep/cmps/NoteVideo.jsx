@@ -11,15 +11,12 @@ export class NoteVideo extends React.Component {
 
     render() {
         // const { loaded } = this.state
-        const { url } = this.props.note.info
-        console.log(url)
+        const { ytId } = this.props.note.info
         return (
-            <div className="video-container">
-                {/* {!loaded ? <Loader /> : ''} */}
-                <iframe width="420" height="315"
-                    src={url}>
+
+                <iframe width="100%" height="300px"
+                    src={`https://www.youtube.com/embed/${ytId}`}>
                 </iframe>
-            </div>
         )
     }
 

@@ -40,18 +40,18 @@
     color: #58ce81;
 }
 
-.add-note .fa-font,.add-note .fa-image,.add-note .fa-list-ul {
+.add-note .fa-font,.add-note .fa-image,.add-note .fa-list-ul,.add-note .fa-youtube{
     cursor: pointer;
     color: #212529;
     font-size: 1.5em;
     transition: all 0.3s;
 }
 
-.add-note .fa-font:hover,.add-note .fa-image:hover,.add-note .fa-list-ul:hover {
+.add-note .fa-font:hover,.add-note .fa-image:hover,.add-note .fa-list-ul:hover, .add-note .fa-youtube:hover {
     color: #76C893;
 }
 
-.add-note .fa-font.active-type,.add-note .fa-image.active-type,.add-note .fa-list-ul.active-type {
+.add-note .fa-font.active-type,.add-note .fa-image.active-type,.add-note .fa-list-ul.active-type,.add-note .fa-youtube.active-type {
     color: #76C893;
     transform: scale(1.2);
 }

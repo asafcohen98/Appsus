@@ -54,6 +54,11 @@ export class NoteController extends React.Component {
         })
     }
 
+    onSendToEmail = () => {
+        const { note } = this.state
+        console.log(note)
+    }
+
 
     render() {
         const { note, isColorPalette } = this.state
@@ -69,6 +74,7 @@ export class NoteController extends React.Component {
                         {isColorPalette ? <ColorPalette onSetColor={this.onSetBackgroundColor} /> : ''}
                         <button onClick={this.toggleColorPalette} className={`fas fa-palette clean-btn ${isColorPalette ? 'active' : ''}`}></button>
                     </div>
+                    <button onClick={this.onSendToEmail} className="fas fa-paper-plane clean-btn"></button>
                     <button onClick={this.onRemoveNote} className="fas fa-trash clean-btn"></button>
                 </div>
             </div>
