@@ -9,10 +9,15 @@ export class AppHeader extends React.Component {
         isNavOpen: false,
     }
 
+    removeEvent;
 
     componentDidMount() {
-        eventBusService.on('unread-emails-count',
-        (unreadEmailsCount) => console.log(unreadEmailsCount));
+        this.removeEvent = eventBusService.on('unread-emails-count',
+            (unreadEmailsCount) => console.log(unreadEmailsCount));
+    }
+
+    componentWillUnmount() {
+        this.removeEvent();
     }
 
 
@@ -40,25 +45,25 @@ export class AppHeader extends React.Component {
                         <li className="about-link"><NavLink to="/about">About</NavLink></li>
 
 
-                        <li className="books-link">
-                            <NavLink to="/book">
+                        <NavLink to="/book">
+                            <li className="books-link">
                                 <i className="fas fa-book-open"></i>
                                 Books
-                            </NavLink>
                         </li>
-                        <li className="keep-link">
-                            <NavLink to="/keep">
+                        </NavLink>
+                        <NavLink to="/keep">
+                            <li className="keep-link">
                                 <i className="fas fa-sticky-note"></i>
                                 Keep
-                            </NavLink>
                         </li>
-                        <li className="mail-link">
-                            <NavLink to="/email/inbox">
+                        </NavLink>
+                        <NavLink to="/email/inbox">
+                            <li className="mail-link">
                                 <span></span>
                                 <i className="fas fa-envelope"></i>
                                 Mail
-                            </NavLink>
                         </li>
+                        </NavLink>
                     </ul>
                 </nav>
             </section>
