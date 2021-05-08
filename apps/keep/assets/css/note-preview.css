@@ -1,6 +1,6 @@
 .note-preview {
     display: flex;
-    margin: 0 1em;
+    margin: 0 1rem;
     color: rgb(14, 11, 11);
     border: 0.5px solid lightgray;
     flex-direction: column;
@@ -18,7 +18,7 @@
 
 .note-preview .text-container textarea {
     font-size: 2em;
-    resize:vertical;
+    resize: vertical;
     overflow: hidden;
     background-color: transparent;
     width: 100%;
@@ -57,7 +57,7 @@
 
 .note-preview .todos-container .todos-title {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 2em;
 }
 
@@ -113,7 +113,6 @@
 .note-preview .todos-container ul li>*:not(:last-child) {
     margin-inline-end: 1em;
 }
-
 
 .note-preview .todos-container ul li .fa-circle {
     color: rgb(14, 11, 11);

@@ -18,10 +18,8 @@ export class ReviewList extends React.Component {
     }
 
     render() {
-        console.log('rendering');
         const { reviews } = this.state
         const { book } = this.props
-        console.log(book)
         if (!reviews) return <div>Loading...</div>
         return (
             <section className="review-list">

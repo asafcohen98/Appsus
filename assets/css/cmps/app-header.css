@@ -1,5 +1,6 @@
 .header-content {
     font-family: Raleway-Regular;
+    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -90,3 +91,10 @@
 .home-link {
     grid-column: 1/4;
 }
+
+@media (min-width: 630px){
+    .header-content{
+        padding: 0 3rem;
+    } 
+}
+

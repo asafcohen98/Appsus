@@ -510,6 +510,7 @@ function getGoogleBooks(searchRes) {
     .get(`https://www.googleapis.com/books/v1/volumes?printType=books&q=effective%5${searchRes}`)
     .then(res => {
       const { items } = res.data
+      if(!items) return
       return items.map(item => {
         const { id, volumeInfo: { title, subtitle, authors, categories, pageCount, publishedDate, description } } = item
         return {

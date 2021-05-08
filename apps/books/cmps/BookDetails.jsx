@@ -70,7 +70,6 @@ export class BookDetails extends React.Component {
 
 
     toggleIsShown = () => {
-        console.log('active')
         this.setState({ isLongTxtShown: !this.state.isLongTxtShown })
     }
 
