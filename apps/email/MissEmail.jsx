@@ -12,6 +12,7 @@ import { EmailList } from './cmps/EmailList.jsx';
 import { EmailCompose } from './cmps/EmailCompose.jsx';
 import { EmailDetails } from './cmps/EmailDetails.jsx';
 import { EmailFilter } from './cmps/EmailFilter.jsx';
+// import { UnreadEmails } from './cmps/UnreadEmails.jsx';
 
 
 
@@ -37,20 +38,20 @@ export class MissEmail extends React.Component {
 
     getReadPrecent = () => {
         emailsService.getReadPrecent().then(readPrecentCount =>
-            this.setState({ readPrecent: readPrecentCount}));
+            this.setState({ readPrecent: readPrecentCount }));
     }
 
     getUnreadEmails = () => {
         emailsService.getUnreadEmails().then(unreadEmailsCount => {
             eventBusService.emit('unread-emails-count', unreadEmailsCount);
-            this.setState({unreadEmailsCount})
+            this.setState({ unreadEmailsCount })
         })
     }
 
     loadEmails = () => {
         emailsService.query(this.state.filterBy)
             .then(emails => {
-                this.setState({ emails }, ()=>{
+                this.setState({ emails }, () => {
                     this.getUnreadEmails();
                     this.getReadPrecent();
                 });
@@ -81,48 +82,51 @@ export class MissEmail extends React.Component {
     }
 
     render() {
-        const { emails, showCompose, emailContent, readPrecent } = this.state
+        const { emails, showCompose, emailContent, readPrecent, unreadEmailsCount } = this.state
         if (!emails) return <div>Loading...</div>
 
         return (
             <section className="email-app">
 
-                <div style={{ position: 'absolute', top: '5em', right: '5em', width: '500px' }}>
-                    <ProgressBar completed={readPrecent} />
-                </div>
-
-                <div className="email-app-tool">
-                    <Link to="?compose=new">
-                        <button onClick={this.showCompose} className="new-email-button">
-                            <i className="fas fa-plus"></i>
-                        </button>
-                    </Link>
-
-                    <Link to="/email/inbox">
-                        <div className="email-inbox-wrapper">
-                            <button className="email-inbox-button">
-                                <i className="fas fa-inbox"></i>
-                            </button>
-                            <span>
-                                Inbox (20)
-                        </span>
-                        </div>
-                    </Link>
-
-                    <EmailFilter onSetFilter={this.onSetFilter} />
-
-                </div>
-
                 {showCompose &&
                     <EmailCompose emailContent={emailContent} loadEmails={this.loadEmails} hideCompose={this.hideCompose} />
                 }
 
-                <Switch>
-                    {/* <Route path="/email/:page/compose" render={(props) => <EmailCompose {...props} loadEmails={this.loadEmails} />} /> */}
-                    <Route path="/email/:page/:emailId" render={(props) => <EmailDetails {...props} loadEmails={this.loadEmails} />} />
-                    {/* <Route component={EmailDetails} path="/email/:page/:emailId" /> */}
-                    <Route path="/email/:page" render={(props) => <EmailList {...props} emails={emails} loadEmails={this.loadEmails} />} />
-                </Switch>
+                <div className="email-app-wrapper">
+                    <div className="email-app-aside">
+
+                        <Link to="?compose=new">
+                            <button onClick={this.showCompose} className="new-email-button">
+                                <i className="fas fa-plus"></i>
+                            </button>
+                        </Link>
+
+                        <Link to="/email/inbox">
+                            <div className="email-inbox-wrapper">
+                                <button className="email-inbox-button">
+                                    <i className="fas fa-inbox"></i>
+                                </button>
+                                    Inbox {!!unreadEmailsCount && <span className="emails-unread-count">{unreadEmailsCount}</span>}
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+
+                <div className="email-app-content">
+                    <div className="email-app-tools">
+                        <EmailFilter onSetFilter={this.onSetFilter} />
+                        <div className="email-progressbar-wrapper">
+                            <ProgressBar completed={readPrecent} />
+                        </div>
+                    </div>
+
+                    <Switch>
+                        {/* <Route path="/email/:page/compose" render={(props) => <EmailCompose {...props} loadEmails={this.loadEmails} />} /> */}
+                        <Route path="/email/:page/:emailId" render={(props) => <EmailDetails {...props} loadEmails={this.loadEmails} />} />
+                        {/* <Route component={EmailDetails} path="/email/:page/:emailId" /> */}
+                        <Route path="/email/:page" render={(props) => <EmailList {...props} emails={emails} loadEmails={this.loadEmails} />} />
+                    </Switch>
+                </div>
             </section>
         )
     }

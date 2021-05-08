@@ -82,10 +82,6 @@ function createEmail(towards, subject, body, sentAt = Date.now(), isRead = false
     });
 }
 
-function getEmails() {
-    return Promise.resolve(emails);
-}
-
 function getEmailById(emailId) {
     const email = emails.find(email => emailId === email.id)
     return Promise.resolve(email)

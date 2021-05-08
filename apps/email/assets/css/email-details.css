@@ -1,21 +1,9 @@
 .email-details {
-    height: 89.3vh;
-    width: 88vw;
-    position: absolute;
-    right: 0;
-    padding-inline-end: 3rem;
+    margin-inline-start: 1rem;
+    height: 100%;
+    width: 100%;
 }
 
-/* .email-details {
-    height: 89.3vh;
-    width: 70vw;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    box-shadow: inset 0px -1px 1px 0px #76c893;
-    clip-path: inset(0px 1px 0px 1px);
-    padding-top: 1em;
-} */
 
 .email-details h1{
     width: fit-content;

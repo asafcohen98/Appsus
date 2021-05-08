@@ -66,6 +66,7 @@
     transition: color .3s;
     color:#212529;
     font-size: 3rem;
+    position: relative;
 }
 
 .main-nav ul li:hover>*{
@@ -80,17 +81,6 @@
     grid-column: 1/4;
 }
 
-.home-link {
-    grid-column: 1/4;
-}
-
-.home-link {
-    grid-column: 1/4;
-}
-
-.home-link {
-    grid-column: 1/4;
-}
 
 @media (min-width: 630px){
     .header-content{

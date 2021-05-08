@@ -10,6 +10,7 @@
     cursor: pointer;
     transition: background-color .3s, box-shadow .3s;
     font-weight: bold;
+    direction: ltr;
 }
 
 .email-preview:hover {

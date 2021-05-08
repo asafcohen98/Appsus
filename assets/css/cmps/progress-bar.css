@@ -1,12 +1,16 @@
 .progress-bar-container {
     width: 100%;
-    background-color: #e0e0de;
+    height: 100%;
+    background-color: #F1F3F4;
     border-radius: 5em;
     text-align: center;
 }
 
 .progress-bar {
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: width 1s ease-in-out, background-color 2s;
     border-top-left-radius: 5em;
     border-bottom-left-radius: 5em;
@@ -18,4 +22,3 @@
     color: white;
     font-weight: bold;
 }
-

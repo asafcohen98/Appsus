@@ -3,33 +3,45 @@
 const { NavLink } = ReactRouterDOM
 
 import { eventBusService } from '../services/event-bus-service.js'
+import { emailsService } from '../apps/email/services/email-service.js'
 
 export class AppHeader extends React.Component {
     state = {
         isNavOpen: false,
+        unreadEmailsCount: 0
     }
 
     removeEvent;
-
+    // this.removeEvent = eventBusService.on('car-count', (carCount) => {
+    //     this.setState({ carCount })
+    //   })
+    // }
+  
+    // componentWillUnmount() {
+    //   this.removeEvent()
+    // }
     componentDidMount() {
-        this.removeEvent = eventBusService.on('unread-emails-count',
-            (unreadEmailsCount) => console.log(unreadEmailsCount));
+        this.removeEvent = eventBusService.on('unread-emails-count', (unreadEmailsCount) => {
+            this.setState({unreadEmailsCount})
+        });
     }
 
     componentWillUnmount() {
-        this.removeEvent();
+        this.removeEvent()
     }
+    // componentDidUpdate() {
 
+    // }
 
     toggleNav = () => {
         this.setState({ isNavOpen: !this.state.isNavOpen })
     }
 
 
-
     render() {
-        const { isNavOpen } = this.state
+        const { isNavOpen, unreadEmailsCount } = this.state
         // const {unReadMails} = eventBusService.on('unreadEmailsCount', )
+
         return (
             <section className="header-content">
                 <NavLink to="/" className="logo">
@@ -59,8 +71,11 @@ export class AppHeader extends React.Component {
                         </NavLink>
                         <NavLink to="/email/inbox">
                             <li className="mail-link">
-                                <span></span>
-                                <i className="fas fa-envelope"></i>
+                                <i className="fas fa-envelope">
+                                {!!unreadEmailsCount &&
+                                    <span className="emails-unread-count">{unreadEmailsCount > 99 ? '99+' : unreadEmailsCount}</span>
+                                }
+                                </i>
                                 Mail
                         </li>
                         </NavLink>

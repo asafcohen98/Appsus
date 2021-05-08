@@ -1,5 +1,3 @@
-
-
 export class EmailFilter extends React.Component {
 
     state = {
@@ -10,27 +8,25 @@ export class EmailFilter extends React.Component {
     }
 
     handleChange = (ev) => {
-        const { value } = ev.target;
+        const { value, name } = ev.target;
         const { filterBy } = this.state;
         const { onSetFilter } = this.props;
-
-        this.setState({ filterBy: { ...filterBy, keyword: value } }, () => onSetFilter(this.state.filterBy));
-    }
-
-    onSetCategory = (ctg) => {
-        const { filterBy } = this.state;
-        const { onSetFilter } = this.props;
-
-        this.setState({ filterBy: { ...filterBy, categories: ctg } }, () => onSetFilter(this.state.filterBy));
+        this.setState({ filterBy: { ...filterBy, [name]: value } }, () => onSetFilter(this.state.filterBy));
     }
 
     render() {
         return (
             <div className="email-filter">
-                <button onClick={() => this.onSetCategory('unread')}>unread</button>
-                <button onClick={() => this.onSetCategory('read')}>read</button>
-                <button onClick={() => this.onSetCategory('all')}>all</button>
-                <input onChange={this.handleChange} type="text" ></input>
+                <select className="email-filter-select" name="categories" onChange={this.handleChange}>
+                        <option value="all">All</option>
+                        <option value="read">Read</option>
+                        <option value="unread">Unread</option>
+                </select>
+
+                <div className="email-filter-search">
+                    <input onChange={this.handleChange} name="keyword" type="text" ></input>
+                    <i className="fas fa-search"></i>
+                </div>
             </div>
         )
     }

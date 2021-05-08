@@ -1,0 +1,62 @@
+/* FONT FACE - SELECT SYMBOL */
+
+@font-face {
+    font-family: FontAwesome-Solid;
+    src: url('../../../../assets/font/webfonts/fa-solid-900.ttf');
+}
+
+.email-filter {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-radius: 2.5rem;
+}
+
+.email-filter input{
+    height: 60%;
+    width: 81%;
+    border-radius: unset;
+    padding-inline-start: 0.5em;
+    margin-inline-start: 0.5em;
+}
+.email-filter .email-filter-search {
+    position: relative;
+    display: flex;
+    height: 60%;
+    width: 200px;
+    border-radius: 2rem;
+    background-color: #F1F3F4;
+    align-items: center;
+    margin-inline-end: 1em;
+}
+
+.email-filter .email-filter-search i {
+    color: #00B594;
+    position: absolute;
+    right: 0.7em;
+}
+
+
+.email-filter-select {
+    appearance: none;
+    /* width: 30px; */
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    border: unset;
+    -webkit-appearance: none;
+}
+
+/*
+
+.email-filter input {
+    background-color: transparent;
+    margin-inline-end: 0.5rem;
+    padding: 1em 1em 1em 1em;
+    width: 200px;
+}
+
+.email-filter .fa-search {
+    position: absolute;
+    right: 1em;
+} */
