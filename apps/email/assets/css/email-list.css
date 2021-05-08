@@ -9,7 +9,7 @@
     height: 100%;
     width: 100%;
     /* width: 88vw; */
-    overflow: scroll;
+    /* overflow: scroll; */
     overflow-x: hidden;
     /* position: absolute; */
     right: 0;
@@ -18,6 +18,24 @@
 }
 
 @media (min-width: 630px) {
+
+    .email-list {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        /* width: 88vw; */
+        overflow: scroll;
+        overflow-x: hidden;
+        /* position: absolute; */
+        right: 0;
+        /* padding-inline-end: 2em; */
+        direction: rtl;
+    }
+
+
+
+
     /* Scroll bar */
     /* width */
     .email-list::-webkit-scrollbar {

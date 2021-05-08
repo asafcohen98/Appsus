@@ -18,6 +18,7 @@
 @import './cmps/loader.css';
 @import './cmps/progress-bar.css';
 @import './cmps/user-msg.css';
+@import './cmps/hamburger-anim.css';
 
 /* Keep App */
 @import '../../apps/keep/assets/css/keep-app.css';

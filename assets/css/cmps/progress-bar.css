@@ -18,7 +18,12 @@
 
 .progress-bar span{
     text-align: center;
-    padding: 1em;
     color: white;
     font-weight: bold;
+}
+
+@media (min-width: 500px) {
+    .progress-bar span{
+        padding: 1em;
+    }
 }

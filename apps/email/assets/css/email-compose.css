@@ -1,10 +1,9 @@
 .email-compose {
     position: fixed;
     max-width: 500px;
-    width: 50vw;
-    bottom: 3vh;
-    right: 5vw;
-    height: 50vh;
+    width: 100vw;
+    bottom: 5vh;
+    height: 65vh;
     z-index: 999;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -77,7 +76,7 @@
     flex-grow: 1;
 }
 
-.email-compose form button .fa-paper-plane{
+.email-compose form button .fa-paper-plane {
     font-size: 1em;
     margin-inline-end: 0.5em;
 }
@@ -103,5 +102,9 @@
     background-color: #6cb686;
 }
 
-
-
+@media (min-width: 500px) {
+    .email-compose {
+        bottom: 3vh;
+        right: 5vw;
+    }
+}

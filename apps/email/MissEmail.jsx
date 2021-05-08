@@ -93,6 +93,7 @@ export class MissEmail extends React.Component {
                 }
 
                 <div className="email-app-wrapper">
+                    
                     <div className="email-app-aside">
 
                         <Link to="?compose=new">
