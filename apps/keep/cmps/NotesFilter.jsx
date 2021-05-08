@@ -15,7 +15,7 @@ export class NotesFilter extends React.Component {
         const { onSetFilter } = this.props
         const value = ev.target.value
         this.setState({ filterBy: { ...filterBy, [name]: value.toLowerCase() } }, () => {
-            if(this.state.filterBy.ctg || this.state.filterBy.keyword) onSetFilter(this.state.filterBy)
+               onSetFilter(this.state.filterBy)
         })
     }
 

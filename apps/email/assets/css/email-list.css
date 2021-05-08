@@ -13,6 +13,8 @@
     padding-inline-end: 2em;
 }
 
+/* Scroll bar */
+
 /* width */
 
 .email-list::-webkit-scrollbar {

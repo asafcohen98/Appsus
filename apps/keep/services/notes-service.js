@@ -25,26 +25,22 @@ function query(filterBy) {
     if (notes) {
         if (filterBy) {
             const { keyword, ctg } = filterBy
-            // filter by all
-            if(ctg === 'all') return Promise.resolve(notes)
             let filteredNotes = null
-            // filter by keyword
+            // category filter
+            if(ctg === 'archive'){
+                filteredNotes = notes.filter(note => note.isArchived)
+            }else{
+                filteredNotes = notes
+            }
             if (keyword) {
-                filteredNotes = notes.filter(note => {
+                filteredNotes = filteredNotes.filter(note => {
                     const { title, txt, url, todos } = note.info
                     return title.toLowerCase().includes(keyword) || txt.toLowerCase().includes(keyword) || url.toLowerCase().includes(keyword)
-                        || todos.some(todo => todo.txt.includes(keyword))
+                        || todos.some(todo => todo.txt.toLowerCase().includes(keyword))
                 })
-            }
-            // filter by keyword and archive
-            if (ctg === 'archive' && filteredNotes) {
-                filteredNotes = filteredNotes.filter(note => note.isArchived)
-            }else if (ctg === 'archive') {
-                filteredNotes = notes.filter(note => note.isArchived)
             }
             return Promise.resolve(filteredNotes)
         }
-
         return Promise.resolve(notes)
     }
     _createNotes()
@@ -230,7 +226,6 @@ function getNoteById(noteId) {
 // That function update todos label when created
 function updateNoteLabel(note, label) {
     note.info.label = label
-    console.log(note)
     _saveNotesToStorage()
     return Promise.resolve(label)
 }

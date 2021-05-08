@@ -26,7 +26,7 @@ export class AppHeader extends React.Component {
         const { isNavOpen } = this.state
         // const {unReadMails} = eventBusService.on('unreadEmailsCount', )
         return (
-            <section className="header-content container">
+            <section className="header-content">
                 <NavLink to="/" className="logo">
                     <img src="./assets/img/logo.svg" alt="" />
                         appsus

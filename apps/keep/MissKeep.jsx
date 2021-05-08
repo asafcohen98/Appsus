@@ -21,7 +21,7 @@ export class MissKeep extends React.Component {
         const { filterBy } = this.state
         notesService.query(filterBy).then(notes => {
             this.setState({ notes }, () => {
-                this.setPinnedNotes(this.state.notes)
+                this.setPinnedNotes(notes)
             })
         })
     }
@@ -45,7 +45,7 @@ export class MissKeep extends React.Component {
         const { notes, isPinnedNotes, pinnedNotes } = this.state
         if (!notes) return <Loader />
         return (
-            <section className="keep-app">
+            <section className="keep-app container">
                 <div className="keep-tools-container">
                     <NotesFilter onSetFilter={this.onSetFilter} />
                     <AddNote loadNotes={this.loadNotes} />

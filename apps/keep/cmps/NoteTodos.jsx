@@ -15,7 +15,6 @@ export class NoteTodos extends React.Component {
         if (!label) {
             label = `Created at: ${this.getCurrTime(new Date())}`
             notesService.updateNoteLabel(note, label).then(newLabel => {
-                console.log(newLabel)
                 this.setState({ todos, label: newLabel })
             })
         } else {
