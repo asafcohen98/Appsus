@@ -3,23 +3,23 @@
 @import './notes-list.css';
 @import './note-preview.css';
 @import './note-controller.css';
+
 .keep-app {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 90vh;
-    overflow-y: scroll;
 }
 
-.keep-app.container{
+.keep-app.container {
     padding: 0 0;
 }
 
-.keep-app>*{
+.keep-app>* {
     margin-bottom: 1rem;
 }
 
-.keep-app h1{
+.keep-app h1 {
     font-size: 2rem;
 }
 
@@ -32,12 +32,15 @@
     border-radius: 2.5rem;
 }
 
-@media (min-width:630px){
-    .keep-app.container{
+@media (min-width:630px) {
+    .keep-app {
+        overflow-y: scroll;
+    }
+
+    .keep-app.container {
         padding: 0 3rem;
     }
 }
-
 
 /* Scroll bar */
 
@@ -56,7 +59,7 @@
 /* Handle */
 
 .keep-app::-webkit-scrollbar-thumb {
-    background-color:#00B594;
+    background-color: #00B594;
     border-radius: 3rem;
 }
 
@@ -67,8 +70,7 @@
     /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.192); */
 }
 
-.keep-app::-webkit-scrollbar-thumb:active{
-    background-color:#009E81;
+.keep-app::-webkit-scrollbar-thumb:active {
+    background-color: #009E81;
     box-shadow: inset 0 0 3px rgba(78, 78, 78, 0.287);
 }
-

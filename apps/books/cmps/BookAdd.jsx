@@ -35,8 +35,8 @@ export class BookAdd extends React.Component {
             booksService.addGoogleBook(googleBook).then(() => {
                 loadBooks()
                 this.setState({ newBook: googleBook }, () => {
-                    const addBookMsg = googleBook.title
-                    eventBusService.showUserMsg(addBookMsg,'success')
+                    const addBookMsg = `${googleBook.title} was added`
+                    eventBusService.showUserMsg(addBookMsg,'save')
                 })
             })
         })

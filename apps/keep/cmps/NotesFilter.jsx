@@ -10,10 +10,9 @@ export class NotesFilter extends React.Component {
 
 
     handleChange = (ev) => {
-        const { name } = ev.target
+        const { name,value} = ev.target
         const { filterBy } = this.state
         const { onSetFilter } = this.props
-        const value = ev.target.value
         this.setState({ filterBy: { ...filterBy, [name]: value.toLowerCase() } }, () => {
                onSetFilter(this.state.filterBy)
         })
@@ -27,8 +26,8 @@ export class NotesFilter extends React.Component {
                     <input id="keyword-search" placeholder="Search notes" name="keyword" type="text" onChange={this.handleChange} />
                     <i className="fas fa-search"></i>
                 </div>
-                <label className="select">
-                    <select name="ctg" id="select" onChange={this.handleChange}>
+                <label htmlFor="select-ctg" className="select">
+                    <select name="ctg" id="select-ctg" onChange={this.handleChange}>
                         <option value="all">All</option>
                         <option value="archive">Archive</option>
                     </select>

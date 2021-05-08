@@ -9,7 +9,7 @@
 
 .add-note form {
     display: flex;
-    align-items: flex-start;
+    align-items: a;
 }
 
 .add-note input {
@@ -17,7 +17,6 @@
     margin-inline-end: 0.5rem;
     padding: 1em 1em 1em 1em;
     width: 200px;
-    margin-bottom: 1em;
 }
 
 .add-note input:focus {
@@ -39,7 +38,7 @@
     color: #009E81;
 }
 
-.add-note .fa-font, .add-note .fa-image, .add-note .fa-list-ul, .add-note .fa-youtube {
+.add-note button {
     cursor: pointer;
     color: #212529;
     font-size: 1.5em;

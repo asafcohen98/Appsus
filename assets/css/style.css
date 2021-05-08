@@ -1,9 +1,15 @@
+
+/* Font-awesome */
+@import './fontawesome/solid.css';
+@import './fontawesome/regular.css';
+@import './fontawesome/all.min.css';
+
 /* Base */
 @import './font.css';
 @import './base.css';
+@import './animations.css';
 @import './helpers.css';
 @import './input-range.css';
-
 @import './pages/home.css';
 
 /* Global Cmps */
@@ -11,14 +17,7 @@
 @import './cmps/color-palette.css';
 @import './cmps/loader.css';
 @import './cmps/progress-bar.css';
-
-/* Font-awesome */
-@import './fontawesome/solid.css';
-@import './fontawesome/regular.css';
-@import './fontawesome/all.min.css';
-
-/* Animate css */
-@import './animate/animate.css';
+@import './cmps/user-msg.css';
 
 /* Keep App */
 @import '../../apps/keep/assets/css/keep-app.css';
@@ -26,5 +25,5 @@
 /* Email App */
 @import '../../apps/email/assets/css/email-app.css';
 
- /* Book App */
- @import '../../apps/books/assets/css/book-app.css';
+/* Book App */
+@import '../../apps/books/assets/css/book-app.css';
