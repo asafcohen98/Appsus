@@ -1,13 +1,17 @@
 
 const { Route, Link, Switch } = ReactRouterDOM;
 
+// services
 import { eventBusService } from '../../services/event-bus-service.js';
 import { emailsService } from './services/email-service.js';
+// global cmps
+import { ProgressBar } from './../../cmps/ProgressBar.jsx';
+// 
 import { EmailList } from './cmps/EmailList.jsx';
 import { EmailCompose } from './cmps/EmailCompose.jsx';
 import { EmailDetails } from './cmps/EmailDetails.jsx';
 import { EmailFilter } from './cmps/EmailFilter.jsx';
-import { ProgressBar } from './../../cmps/ProgressBar.jsx';
+
 
 
 export class MissEmail extends React.Component {
@@ -34,7 +38,7 @@ export class MissEmail extends React.Component {
 
     componentDidUpdate() {
         if (this.state.readEmailsCount !== this.getReadPrecent()) {
-            
+            // emailsService.getEmails
             const readEmailsCount = this.getReadPrecent();
             this.setState({ readEmailsCount });
 

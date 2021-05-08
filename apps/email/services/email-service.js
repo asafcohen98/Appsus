@@ -10,11 +10,11 @@ var filteredEmails;
 export const emailsService = {
     query,
     getEmailById,
-    addEmail
+    addEmail,
+    getEmails
 }
 
 function query(filterBy) {
-    console.log(emails)
     if (emails.length) {
         if (!filterBy) return Promise.resolve(emails);
 
@@ -68,6 +68,10 @@ function createEmail(towards, subject, body, sentAt = Date.now(), isRead = false
         body,
         sentAt
     });
+}
+
+function getEmails() {
+    return Promise.resolve(emails);
 }
 
 function getEmailById(emailId) {
