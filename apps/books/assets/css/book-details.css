@@ -1,10 +1,10 @@
 
 .book-details-container {
     display: flex;
-    flex-direction: column;
     height: 100%;
     padding-top: 2em;
     padding-bottom: 2em;
+    flex-direction: column;
 }
 
 .book-details {
@@ -13,7 +13,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 2rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 2rem;
+    padding: 2em;
 }
 
 .go-back-btn {
@@ -166,8 +168,14 @@
 }
 
 
-@media (min-width: 630px){
+@media (min-width: 800px){
     .book-details-container{
         overflow-y: scroll;
+        flex-direction: unset;
+        padding: 1rem 3rem;
+    }
+
+    .book-details {
+        flex-basis: 50%;
     }
 }

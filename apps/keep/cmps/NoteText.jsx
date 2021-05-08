@@ -1,4 +1,5 @@
 import { notesService } from '../services/notes-service.js'
+import { eventBusService } from '../../../services/event-bus-service.js'
 
 export class NoteText extends React.Component {
 
@@ -15,15 +16,19 @@ export class NoteText extends React.Component {
 
 
     handleChange = (ev) => {
-        const {noteTxt} = this.state
+        const { noteTxt } = this.state
         const { value } = ev.target
-        this.setState({ noteTxt: value})
+        this.setState({ noteTxt: value })
     }
 
     saveChanges = () => {
         const { note, loadNote } = this.props
         const { noteTxt } = this.state
-        notesService.updateNoteTxt(note, noteTxt).then(() => loadNote())
+        notesService.updateNoteTxt(note, noteTxt).then(() => {
+            loadNote()
+            const savedMsg = 'Your changes have been saved!'
+            eventBusService.showUserMsg(savedMsg,'save')
+        })
     }
 
 
@@ -33,7 +38,7 @@ export class NoteText extends React.Component {
         return (
             <div className="text-container" >
                 <textarea role="textbox" spellCheck="false" value={noteTxt} onBlur={this.saveChanges} onChange={this.handleChange}>
-            </textarea >
+                </textarea >
                 {/* <span suppressContentEditableWarning={true} role="textbox" onBlur={this.saveChanges} onInput={this.handleChange}  contentEditable>
                 {noteTxt}
                 </span> */}

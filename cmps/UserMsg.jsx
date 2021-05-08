@@ -6,7 +6,6 @@ const { Link } = ReactRouterDOM
 export class UserMsg extends React.Component {
 
     removeEvent
-    clear
 
     state = {
         msg: null,
@@ -51,7 +50,6 @@ export class UserMsg extends React.Component {
     }
 
     render() {
-        const { newBook } = this.props
         const { animationClass } = this.state
         if (!this.state.msg) return <span></span>
         const msgClass = this.state.msg.type || ''

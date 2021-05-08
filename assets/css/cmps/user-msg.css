@@ -20,18 +20,19 @@
     margin-inline-end: 1rem;
 }
 
-.user-msg-txt{
+.user-msg .user-msg-txt{
     word-break: normal;
     max-width: 250px;
     margin-inline-end: 1rem;
 }
 
-.user-msg-txt h1{
+.user-msg .user-msg-txt h1{
     text-transform: uppercase;
     font-weight: bolder;
+    font-size: 1.2em;
 }
 
-.user-msg-txt p{
+.user-msg .user-msg-txt p{
     margin: 0;
     color: #7b7a7adb;
 }
@@ -83,22 +84,6 @@
     color: #e65555;
 }
 
-/* rgb(238, 238, 238); */
-/* Error msg */
-
-.user-msg.error button{
-    background-color: #e65555;
-    border-radius: 2rem;
-    padding: 0 0.3em;
-}
-
-.user-msg.error i {
-   color: #e65555;
-}
-
-.user-msg.error .user-msg-txt h1{
-    color: #e65555;
-}
 
 /* Save msg */
 

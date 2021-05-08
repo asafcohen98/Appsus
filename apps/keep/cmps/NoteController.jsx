@@ -1,5 +1,6 @@
 import { notesService } from '../services/notes-service.js'
 import { ColorPalette } from '../../../cmps/ColorPalette.jsx'
+import { eventBusService } from '../../../services/event-bus-service.js'
 
 const { Link } = ReactRouterDOM
 
@@ -30,7 +31,12 @@ export class NoteController extends React.Component {
         const { loadNotes } = this.props
         const { note } = this.state
         notesService.updateArchive(note).then(newNote => {
-            this.setState({ note: newNote }, () => loadNotes())
+            this.setState({ note: newNote }, () =>{
+                loadNotes()
+                if(!newNote.isArchived) return
+                const archiveAddMsg = 'Note has been archived'
+                eventBusService.showUserMsg(archiveAddMsg,'success')
+            })
         })
     }
 

@@ -49,7 +49,7 @@ export class BookAdd extends React.Component {
                 <label htmlFor="search-book"></label>
                 <input type="search" id="search-book" ref={this.inputRef} placeholder="Search for a book" onChange={this.handleChange} />
                 {(searchRes && resOptions) && <ResultOptions resOptions={resOptions} onAddGoogleBook={this.onAddGoogleBook} />}
-               <UserMsg newBook={newBook} />
+               <UserMsg/>
             </section>
         )
     }

@@ -9,7 +9,7 @@
 
 .add-note form {
     display: flex;
-    align-items: a;
+    margin-bottom: 1em;
 }
 
 .add-note input {
@@ -23,26 +23,21 @@
     box-shadow: 0px 0px 2px 0px #00000057;
 }
 
-.add-note button {
+.add-note .add-note-btn{
     background-color: transparent;
     text-align: center;
     border-radius: 3rem;
     padding: 0.2em 0.4em;
     border: none;
-    color: #00B594;
-    font-size: 2em;
-    transition: color 0.3s;
-}
-
-.add-note button:hover {
-    color: #009E81;
-}
-
-.add-note button {
     cursor: pointer;
-    color: #212529;
+    color: #00B594;
     font-size: 1.5em;
     transition: all 0.3s;
+    font-size: 2em;
+}
+
+.add-note .add-note-btn:hover {
+    color: #009E81;
 }
 
 .note-type-container {
@@ -54,11 +49,18 @@
     margin-inline-end: 1em;
 }
 
-.add-note .fa-font:hover, .add-note .fa-image:hover, .add-note .fa-list-ul:hover, .add-note .fa-youtube:hover {
-    color: #00B594;
+.add-note .note-type-container button{
+    color: #212529;
+    font-size: 1.5em;
+    transition: all 0.3s;
 }
 
-.add-note .fa-font.active-type, .add-note .fa-image.active-type, .add-note .fa-list-ul.active-type, .add-note .fa-youtube.active-type {
+.add-note .note-type-container button:hover{
+    color: #00B594;
+    transform: scale(1.2);
+}
+
+.add-note .note-type-container button.active-type{
     color: #00B594;
     transform: scale(1.2);
 }
@@ -73,6 +75,7 @@
     }
     .add-note form {
         align-items: center;
+        margin-bottom: unset;
     }
     .add-note input {
         width: 300px;

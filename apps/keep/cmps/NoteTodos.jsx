@@ -1,6 +1,6 @@
 
-
 import { notesService } from '../services/notes-service.js'
+import { eventBusService } from '../../../services/event-bus-service.js'
 
 export class NoteTodos extends React.Component {
 
@@ -46,7 +46,11 @@ export class NoteTodos extends React.Component {
     saveChanges = () => {
         const { note, loadNote } = this.props
         const { todos } = this.state
-        notesService.updateTodos(note, todos).then(() => loadNote())
+        notesService.updateTodos(note, todos).then(() =>{
+            loadNote()
+            const savedMsg = 'Your changes have been saved!'
+            eventBusService.showUserMsg(savedMsg,'save')
+        })       
     }
 
     toggleDoneTodo = (todo) => {

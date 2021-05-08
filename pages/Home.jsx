@@ -11,7 +11,7 @@ export class Home extends React.Component {
                     <img src="./assets/img/image-not-found.png" alt="" />
                     <img src="./assets/img/image-not-found.png" alt="" />
                 </div>
-                <h2>Check it out</h2>
+                <h2>Check our apps</h2>
                 <ul className="links-container clean-list">
                     <li className="books-link">
                         <Link onClick={() => this.setState({ isNavOpen: false })} to="/book">

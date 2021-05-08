@@ -80,7 +80,7 @@ export class BookDetails extends React.Component {
         if (!book) return <div>Loading...</div>
         const { thumbnail, pageCount, publishedDate, title, subtitle, listPrice, description, id } = book
         return (
-            <section className="book-details-container container">
+            <section className="book-details-container">
                 <div className="book-details">
                     <div className="img-container">
                         <img src={thumbnail} alt="" />
