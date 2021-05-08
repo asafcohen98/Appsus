@@ -10,6 +10,11 @@ export class AppHeader extends React.Component {
     }
 
 
+    componentDidMount() {
+        eventBusService.on('unread-emails-count',
+        (unreadEmailsCount) => console.log(unreadEmailsCount));
+    }
+
 
     toggleNav = () => {
         this.setState({ isNavOpen: !this.state.isNavOpen })
@@ -19,12 +24,11 @@ export class AppHeader extends React.Component {
 
     render() {
         const { isNavOpen } = this.state
-
         // const {unReadMails} = eventBusService.on('unreadEmailsCount', )
         return (
             <section className="header-content container">
                 <NavLink to="/" className="logo">
-                        <img src="./assets/img/logo.svg" alt="" />
+                    <img src="./assets/img/logo.svg" alt="" />
                         appsus
                 </NavLink>
 
@@ -50,6 +54,7 @@ export class AppHeader extends React.Component {
                         </li>
                         <li className="mail-link">
                             <NavLink to="/email/inbox">
+                                <span></span>
                                 <i className="fas fa-envelope"></i>
                                 Mail
                             </NavLink>

@@ -11,7 +11,8 @@ export const emailsService = {
     query,
     getEmailById,
     addEmail,
-    getEmails
+    getReadPrecent,
+    getUnreadEmails
 }
 
 function query(filterBy) {
@@ -49,6 +50,17 @@ function _loadEmails() {
     createEmail('Hamuzim@fun.com', 'some headline12321321', utilsService.makeLorem(300), Date.now(), true);
     createEmail('Tahini@fun.com', 'some headline', utilsService.makeLorem(100), Date.now(), true)
     _saveEmailsToStorage()
+}
+
+//Read Email Progress
+function getReadPrecent() {
+        const readEmailsCount = emails.filter(email => email.isRead).length;
+        const readPrecentCount = +(((readEmailsCount / emails.length) * 100).toFixed(1));
+        return Promise.resolve(readPrecentCount)
+}
+
+function getUnreadEmails() {
+    return Promise.resolve(emails.filter(email => !email.isRead).length);
 }
 
 function addEmail(emailContent) {

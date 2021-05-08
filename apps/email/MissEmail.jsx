@@ -3,6 +3,7 @@ const { Route, Link, Switch } = ReactRouterDOM;
 
 // services
 import { eventBusService } from '../../services/event-bus-service.js';
+
 import { emailsService } from './services/email-service.js';
 // global cmps
 import { ProgressBar } from './../../cmps/ProgressBar.jsx';
@@ -20,7 +21,8 @@ export class MissEmail extends React.Component {
         emails: null,
         filterBy: null,
         showCompose: false,
-        readEmailsCount: 0
+        readPrecent: 0,
+        unreadEmailsCount: 0
     }
 
     componentDidMount() {
@@ -31,26 +33,27 @@ export class MissEmail extends React.Component {
             this.showCompose()
         }
 
-        // function emit(eventName, data) {
-        //     window.dispatchEvent(new CustomEvent(eventName, { detail: data }))
-        // }
     }
 
-    componentDidUpdate() {
-        if (this.state.readEmailsCount !== this.getReadPrecent()) {
-            // emailsService.getEmails
-            const readEmailsCount = this.getReadPrecent();
-            this.setState({ readEmailsCount });
+    getReadPrecent = () => {
+        emailsService.getReadPrecent().then(readPrecentCount =>
+            this.setState({ readPrecent: readPrecentCount}));
+    }
 
-            const { emails } = this.state;
-            eventBusService.emit('unreadEmailsCount', { detail: readEmailsCount - emails.length });
-        }
+    getUnreadEmails = () => {
+        emailsService.getUnreadEmails().then(unreadEmailsCount => {
+            eventBusService.emit('unread-emails-count', unreadEmailsCount);
+            this.setState({unreadEmailsCount})
+        })
     }
 
     loadEmails = () => {
         emailsService.query(this.state.filterBy)
             .then(emails => {
-                this.setState({ emails });
+                this.setState({ emails }, ()=>{
+                    this.getUnreadEmails();
+                    this.getReadPrecent();
+                });
             });
     }
 
@@ -77,23 +80,15 @@ export class MissEmail extends React.Component {
         this.setState({ filterBy }, this.loadEmails)
     }
 
-    //Read Email Progress
-    getReadPrecent = () => {
-        const { emails } = this.state;
-        const readedMailsCount = emails.filter(email => email.isRead).length;
-
-        return +(((readedMailsCount / emails.length) * 100).toFixed(1))
-    }
-
     render() {
-        const { emails, showCompose, emailContent, readEmailsCount } = this.state
+        const { emails, showCompose, emailContent, readPrecent } = this.state
         if (!emails) return <div>Loading...</div>
 
         return (
             <section className="email-app">
 
                 <div style={{ position: 'absolute', top: '5em', right: '5em', width: '500px' }}>
-                    <ProgressBar completed={readEmailsCount} />
+                    <ProgressBar completed={readPrecent} />
                 </div>
 
                 <div className="email-app-tool">
