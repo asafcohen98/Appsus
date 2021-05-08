@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height:90vh;
 }
 
 .home>*:not(:last-child) {
@@ -24,6 +25,7 @@
 
 .home h2 {
     font-size: 2rem;
+    color:#00B594;
 }
 
 .home .links-container {

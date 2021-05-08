@@ -26,11 +26,10 @@ function query(filterBy) {
         if (filterBy) {
             const { keyword, ctg } = filterBy
             let filteredNotes = null
-            // category filter
-            if(ctg === 'archive'){
+            if (ctg === 'archive') {
                 filteredNotes = notes.filter(note => note.isArchived)
-            }else{
-                filteredNotes = notes
+            } else {
+                filteredNotes = notes.filter(note => !note.isArchived)
             }
             if (keyword) {
                 filteredNotes = filteredNotes.filter(note => {
@@ -41,10 +40,10 @@ function query(filterBy) {
             }
             return Promise.resolve(filteredNotes)
         }
-        return Promise.resolve(notes)
+        return Promise.resolve(notes.filter(note => !note.isArchived))
     }
     _createNotes()
-    return Promise.resolve(notes)
+    return Promise.resolve(notes.filter(note => !note.isArchived))
 }
 
 // That function creating notes for data test:
@@ -62,8 +61,8 @@ function _createNotes() {
             todos: []
         },
         style: {
-            backgroundColor: '#ffff',
-            color: '#1111',
+            backgroundColor: '#f94144',
+            color: '#f94144',
             fontSize: '1rem',
         }
     }, {
@@ -79,7 +78,7 @@ function _createNotes() {
             todos: []
         },
         style: {
-            backgroundColor: '#ffff',
+            backgroundColor: '#f8961e',
             color: '#1111',
             fontSize: '1rem',
         }
@@ -97,7 +96,7 @@ function _createNotes() {
             todos: []
         },
         style: {
-            backgroundColor: '#ffff',
+            backgroundColor: '#61a5c2',
             color: '#1111',
             fontSize: '1rem',
         }
@@ -120,7 +119,7 @@ function _createNotes() {
                 { id: utilsService.makeId(), txt: 'Finish animations', doneAt: new Date() }]
         },
         style: {
-            backgroundColor: '#ffff',
+            backgroundColor: '#9d4edd',
             color: '#1111',
             fontSize: '1rem',
         }
@@ -139,7 +138,7 @@ function _createNotes() {
             todos: []
         },
         style: {
-            backgroundColor: '#ffff',
+            backgroundColor: '#577590',
             color: '#1111',
             fontSize: '1rem',
         }
@@ -158,8 +157,8 @@ function _createNotes() {
             todos: []
         },
         style: {
-            backgroundColor: '#ffff',
-            color: '#1111',
+            backgroundColor: 'f9c74f',
+            color: '#f9c74f',
             fontSize: '1rem',
         }
     },
@@ -194,7 +193,7 @@ function createNote(type, info) {
         isPinned: false,
         info,
         style: {
-            backgroundColor: '#ffff',
+            backgroundColor: '#adb5bd',
             color: '#1111',
             fontSize: '1rem',
         }

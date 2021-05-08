@@ -1,5 +1,7 @@
 import { notesService } from '../services/notes-service.js'
 import { utilsService } from '../../../services/utils-service.js'
+import { eventBusService } from '../../../services/event-bus-service.js'
+import {UserMsg } from '../../../cmps/UserMsg.jsx'
 export class AddNote extends React.Component {
 
     state = {
@@ -48,6 +50,18 @@ export class AddNote extends React.Component {
         }
     }
 
+    getValidMsg = (noteType) => {
+        switch (noteType) {
+            case 'NoteImg':
+                return 'Please enter an image URL'
+            case 'NoteVideo':
+                return 'Please enter a youtube URL'
+            case 'NoteTodos':
+                return 'Please enter a comma separated list'
+            default: return ''
+        }
+    }
+
     handleChange = (ev) => {
         const value = ev.target.value
         this.setState({ txtInput: value })
@@ -57,15 +71,20 @@ export class AddNote extends React.Component {
         this.setState({ noteType: type })
     }
 
+
     onAddNote = (ev) => {
         ev.preventDefault()
         let { noteType, txtInput, noteInfo } = this.state
         const { loadNotes } = this.props
-        if (!this.checkIfValid(noteType, txtInput)) return
+        if (!this.checkIfValid(noteType, txtInput)) {
+            const validMsg = this.getValidMsg(noteType)
+            eventBusService.showUserMsg(validMsg,'error')
+            return
+        }
         if (noteType === 'NoteImg') {
             this.setState({ noteInfo: { ...noteInfo, url: txtInput } }, () => {
                 notesService.createNote(noteType, this.state.noteInfo).then(() => {
-                    // this.resetState()
+                    this.resetState()
                     loadNotes()
                 })
             })
@@ -82,7 +101,6 @@ export class AddNote extends React.Component {
         } else if (noteType === 'NoteVideo') {
             const ytRegex = "^(?:https?:)?//[^/]*(?:youtube(?:-nocookie)?\.com|youtu\.be).*[=/]([-\\w]{11})(?:\\?|=|&|$)";
             const ytUrl = txtInput.match(ytRegex)
-            // take the yt id 
             this.setState({ noteInfo: { ...noteInfo, ytId: ytUrl[1] } }, () => {
                 notesService.createNote(noteType, this.state.noteInfo).then(() => {
                     this.resetState()
@@ -120,14 +138,15 @@ export class AddNote extends React.Component {
                 <form onSubmit={this.onAddNote}>
                     <label htmlFor="add-note"></label>
                     <input ref={this.inputRef} type="text" name="txtInput" placeholder={this.getPlaceholder(noteType)} value={txtInput} id="add-note" onChange={this.handleChange} />
-                    <button className="fas fa-plus-circle"></button>
+                    <button className="add-note-btn fas fa-plus-circle"></button>
                 </form>
                 <div className="note-type-container">
-                <button onClick={() => this.onSelectType('NoteText')} className={`fas fa-font ${noteType === 'NoteText' ? 'active-type' : ''} `}></button>
-                <button onClick={() => this.onSelectType('NoteImg')} className={`far fa-image ${noteType === 'NoteImg' ? 'active-type' : ''}`}></button>
-                <button onClick={() => this.onSelectType('NoteVideo')} className={`fab fa-youtube ${noteType === 'NoteVideo' ? 'active-type' : ''}`}></button>
-                <button onClick={() => this.onSelectType('NoteTodos')} className={`fas fa-list-ul ${noteType === 'NoteTodos' ? 'active-type' : ''}`}></button>
+                    <button onClick={() => this.onSelectType('NoteText')} className={`fas fa-font clean-btn ${noteType === 'NoteText' ? 'active-type' : ''} `}></button>
+                    <button onClick={() => this.onSelectType('NoteImg')} className={`far fa-image clean-btn ${noteType === 'NoteImg' ? 'active-type' : ''}`}></button>
+                    <button onClick={() => this.onSelectType('NoteVideo')} className={`fab fa-youtube clean-btn ${noteType === 'NoteVideo' ? 'active-type' : ''}`}></button>
+                    <button onClick={() => this.onSelectType('NoteTodos')} className={`fas fa-list-ul clean-btn ${noteType === 'NoteTodos' ? 'active-type' : ''}`}></button>
                 </div>
+                <UserMsg/>
             </div>
         )
 
