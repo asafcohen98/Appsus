@@ -1,0 +1,26 @@
+
+/* animations */
+
+.slide-up{
+    transform: translateY(-200%);
+}
+
+.slide-down{
+    transform: translateY(0);
+}
+
+.slide-right{
+    transform: translateX(200%); 
+}
+
+.slide-left{
+    transform: translateX(0); 
+}
+
+.fade-in{
+    opacity:1;
+}
+
+.fade-out{
+    opacity:0;
+}

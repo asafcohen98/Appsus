@@ -29,7 +29,7 @@ export class ReviewList extends React.Component {
                         <div className="review" key={review.id}>
                             <button onClick={() => {
                                 this.onRemoveReview(book, idx)
-                            }}>x</button>
+                            }}>&times;</button>
                             <h1>{review.fullName}</h1>
                             <RatingStars rate={review.rate} isPreview={true} />
                             <div className="review-desc">

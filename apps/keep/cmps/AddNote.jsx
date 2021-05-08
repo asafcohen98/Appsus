@@ -120,13 +120,13 @@ export class AddNote extends React.Component {
                 <form onSubmit={this.onAddNote}>
                     <label htmlFor="add-note"></label>
                     <input ref={this.inputRef} type="text" name="txtInput" placeholder={this.getPlaceholder(noteType)} value={txtInput} id="add-note" onChange={this.handleChange} />
-                    <button><i className="fas fa-plus-circle"></i></button>
+                    <button className="fas fa-plus-circle"></button>
                 </form>
                 <div className="note-type-container">
-                <i onClick={() => this.onSelectType('NoteText')} className={`fas fa-font ${noteType === 'NoteText' ? 'active-type' : ''} `}></i>
-                <i onClick={() => this.onSelectType('NoteImg')} className={`far fa-image ${noteType === 'NoteImg' ? 'active-type' : ''}`}></i>
-                <i onClick={() => this.onSelectType('NoteVideo')} className={`fab fa-youtube ${noteType === 'NoteVideo' ? 'active-type' : ''}`}></i>
-                <i onClick={() => this.onSelectType('NoteTodos')} className={`fas fa-list-ul ${noteType === 'NoteTodos' ? 'active-type' : ''}`}></i>
+                <button onClick={() => this.onSelectType('NoteText')} className={`fas fa-font ${noteType === 'NoteText' ? 'active-type' : ''} `}></button>
+                <button onClick={() => this.onSelectType('NoteImg')} className={`far fa-image ${noteType === 'NoteImg' ? 'active-type' : ''}`}></button>
+                <button onClick={() => this.onSelectType('NoteVideo')} className={`fab fa-youtube ${noteType === 'NoteVideo' ? 'active-type' : ''}`}></button>
+                <button onClick={() => this.onSelectType('NoteTodos')} className={`fas fa-list-ul ${noteType === 'NoteTodos' ? 'active-type' : ''}`}></button>
                 </div>
             </div>
         )

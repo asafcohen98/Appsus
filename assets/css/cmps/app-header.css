@@ -27,6 +27,15 @@
     cursor: pointer;
     max-width: 50px;
     height: 40px;
+    transition: transform 0.3s;
+}
+
+.apps-grid:hover{
+    transform: scale(1.1);
+}
+
+.apps-grid.active{
+    transform: scale(1.1);
 }
 
 .main-nav {
@@ -34,10 +43,11 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     z-index: 1;
     right: 1vw;
-    top:9vh;
+    top:11vh;
     border-radius: 1rem;
     background-color: #ffff;
     width: 250px;
+    transition: transform 0.6s ease-in-out;
 }
 
 .main-nav ul {
@@ -59,12 +69,16 @@
 }
 
 .main-nav ul a:hover li>*, .main-nav ul li:hover {
+/* .main-nav ul li a{ */
+    transition: transform 0.3s;
+}
+
+.main-nav ul a:hover >*, .main-nav ul li:hover {
     color: #00B594;
 }
 
 .main-nav .fa-envelope, .main-nav .fa-sticky-note, .main-nav .fa-book-open {
     transition: color .3s;
-    color:#212529;
     font-size: 3rem;
     position: relative;
 }

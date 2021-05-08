@@ -4,7 +4,6 @@
     height: 100%;
     padding-top: 2em;
     padding-bottom: 2em;
-    overflow-y: scroll;
 }
 
 .book-details {
@@ -162,4 +161,11 @@
 .book-details-container::-webkit-scrollbar-thumb:active {
     background-color: #009E81;
     box-shadow: inset 0 0 3px rgba(78, 78, 78, 0.287);
+}
+
+
+@media (min-width: 630px){
+    .book-details-container{
+        overflow-y: scroll;
+    }
 }

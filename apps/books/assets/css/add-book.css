@@ -38,7 +38,7 @@
 }
 
 
-.add-book button {
+.add-book .result-options button {
     background-color: transparent;
     text-align: center;
     border-radius: 3rem;
@@ -49,7 +49,7 @@
     transition: color 0.3s;
 }
 
-.add-book button:hover{
+.add-book .result-options button:hover{
     color: #009E81
 }
 

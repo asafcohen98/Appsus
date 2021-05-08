@@ -9,17 +9,19 @@ export class UserMsg extends React.Component {
     clear
 
     state = {
-        msg: null
+        msg: null,
+        animationClass: 'slide-up'
     }
 
     componentDidMount() {
         this.removeEvent = eventBusService.on('show-user-msg', (msg) => {
-            this.setState({ msg }, ()=>{
-                setTimeout(() => {
-                    this.setState({ msg : null})
-                }, 3000)
-            })
-
+            this.setState({ msg }, () => setTimeout(() => {
+                this.setState({ animationClass: 'slide-down fade-in' }, () => {
+                     setTimeout(()=>{
+                         this.setState({animationClass: 'slide-up fade-out'})
+                     },3000)
+                })
+            }),1000)
         })
     }
 
@@ -28,20 +30,41 @@ export class UserMsg extends React.Component {
         this.removeEvent()
     }
 
+    getTypeMsg = () => {
+        const { type } = this.state.msg
+        switch (type) {
+            case 'success': return 'Success !'
+            case 'error': return 'Error !'
+            case 'save': return 'Saved !'
+            default: return ''
+        }
+    }
+
+    getTypeIcon = () => {
+        const { type } = this.state.msg
+        switch (type) {
+            case 'success': return 'fas fa-check'
+            case 'error': return 'fas fa-times'
+            case 'save': return 'fas fa-save'
+            default: return ''
+        }
+    }
+
     render() {
         const { newBook } = this.props
+        const { animationClass } = this.state
         if (!this.state.msg) return <span></span>
         const msgClass = this.state.msg.type || ''
         return (
-            <section className={'user-msg ' + msgClass}>
-                <i className="fas fa-check"></i>
+            <section className={`user-msg ${msgClass} ${animationClass}`}>
+                <i className={this.getTypeIcon()}></i>
                 <div className="user-msg-txt">
-                    <p>{this.state.msg.txt} <span>was successfully added</span></p>
-                    <Link to={`/book/${newBook.id}`}>Check it out</Link>
+                    <h1>{this.getTypeMsg()}</h1>
+                    <p>{this.state.msg.txt}</p>
                 </div>
                 <button onClick={() => {
                     this.setState({ msg: null })
-                }}>x</button>
+                }}>&times;</button>
             </section>
         )
     }
