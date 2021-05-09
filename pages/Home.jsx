@@ -7,21 +7,21 @@ export class Home extends React.Component {
             <section className="home">
                 <h1>Welcome !</h1>
                 <div className="imgs-container">
-                <Link to="/keep">
-                    <div className="gif-container">
-                    <img src="assets/img/keep-gif.gif" alt="" />
-                    </div>
+                    <Link to="/keep">
+                        <div className="gif-container">
+                            <img src="assets/img/keep-gif.gif" alt="" />
+                        </div>
                     </Link >
                     <Link to="/book">
-                    <div className="gif-container">
-                    <img src="assets/img/book-gif.gif" alt="" />
-                    </div>
+                        <div className="gif-container">
+                            <img src="assets/img/book-gif.gif" alt="" />
+                        </div>
                     </Link>
                     <Link to="/email/inbox">
-                    <div className="gif-container">
-                    <img src="assets/img/email-gif.gif" alt="" />
-                    </div>
-                    </Link>
+                        <div className="gif-container">
+                            <img src="assets/img/email-gif.gif" alt="" />
+                        </div>
+                    </Link>/
                 </div>
                 <h2>Check our apps</h2>
                 <ul className="links-container clean-list">
