@@ -9,17 +9,17 @@ export class Home extends React.Component {
                 <div className="imgs-container">
                 <Link to="/keep">
                     <div className="gif-container">
-                    <img src="./assets/img/keep-gif.gif" alt="" />
+                    <img src="assets/img/keep-gif.gif" alt="" />
                     </div>
                     </Link >
                     <Link to="/book">
                     <div className="gif-container">
-                    <img src="./assets/img/book-gif.gif" alt="" />
+                    <img src="assets/img/book-gif.gif" alt="" />
                     </div>
                     </Link>
                     <Link to="/email/inbox">
                     <div className="gif-container">
-                    <img src="./assets/img/email-gif.gif" alt="" />
+                    <img src="assets/img/email-gif.gif" alt="" />
                     </div>
                     </Link>
                 </div>
