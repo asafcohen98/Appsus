@@ -79,7 +79,7 @@ function _createNotes() {
         },
         style: {
             backgroundColor: '#f8961e',
-            color: '#1111',
+            color: '#61a5c2',
             fontSize: '1rem',
         }
     },
@@ -97,7 +97,7 @@ function _createNotes() {
         },
         style: {
             backgroundColor: '#61a5c2',
-            color: '#1111',
+            color: '#f8961e',
             fontSize: '1rem',
         }
     },
@@ -120,7 +120,7 @@ function _createNotes() {
         },
         style: {
             backgroundColor: '#9d4edd',
-            color: '#1111',
+            color: '#f9c74f',
             fontSize: '1rem',
         }
     },
@@ -139,7 +139,7 @@ function _createNotes() {
         },
         style: {
             backgroundColor: '#577590',
-            color: '#1111',
+            color: '#ffe66d',
             fontSize: '1rem',
         }
     },
@@ -176,8 +176,8 @@ function _createNotes() {
             todos: []
         },
         style: {
-            backgroundColor: '#ffff',
-            color: '#1111',
+            backgroundColor: '#adb5bd',
+            color: '#adb5bd',
             fontSize: '1rem',
         }
     }
@@ -193,7 +193,7 @@ function createNote(type, info) {
         isPinned: false,
         info,
         style: {
-            backgroundColor: '#adb5bd',
+            backgroundColor: '#f9c74f',
             color: '#1111',
             fontSize: '1rem',
         }

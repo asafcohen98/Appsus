@@ -18,8 +18,8 @@
 
 .note-preview .text-container textarea {
     font-size: 2em;
-    resize: vertical;
-    overflow: hidden;
+    resize: none;
+    overflow-y: scroll;
     background-color: transparent;
     width: 100%;
     min-height: 300px;

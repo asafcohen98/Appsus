@@ -29,7 +29,6 @@ export class AppHeader extends React.Component {
     render() {
         
         const { isNavOpen, unreadEmailsCount } = this.state
-        // const {unReadMails} = eventBusService.on('unreadEmailsCount', )
         return (
             <section className="header-content">
                 <NavLink to="/" className="logo">
@@ -42,7 +41,7 @@ export class AppHeader extends React.Component {
                 <nav className={`main-nav ${isNavOpen ? 'slide-left' : 'slide-right'}`}>
                     <ul className={"clean-list"}>
                         <li className="home-link"><NavLink onClick={() => this.setState({ isNavOpen: false })} exact to="/">Home</NavLink></li>
-                        <li className="about-link"><NavLink onClick={() => this.setState({ isNavOpen: false })} to="/about">About</NavLink></li>
+                        <li className="about-link"><NavLink onClick={() => this.setState({ isNavOpen: false })} to="/about">About us</NavLink></li>
                         <li className="books-link">
                             <NavLink onClick={() => this.setState({ isNavOpen: false })} to="/book">
                                 <i className="fas fa-book-open"></i>
@@ -55,17 +54,15 @@ export class AppHeader extends React.Component {
                                 Keep
                             </NavLink>
                         </li>
-
-                        <NavLink onClick={() => this.setState({ isNavOpen: false })} to="/email/inbox">
                             <li className="mail-link">
+                            <NavLink onClick={() => this.setState({ isNavOpen: false })} to="/email/inbox">
                                 <i className="fas fa-envelope">
                                     {!!unreadEmailsCount &&
                                         <span className="emails-unread-count">{unreadEmailsCount > 99 ? '99+' : unreadEmailsCount}</span>}
                                 </i>
                                 Mail
+                                </NavLink>
                             </li>
-                        </NavLink>
-
                     </ul>
                 </nav>
             </section>

@@ -13,7 +13,7 @@ export class EmailCompose extends React.Component {
     componentDidMount() {
         const {emailContent} = this.props;
         if (emailContent) {
-            this.setState({emailContent: {...emailContent}}, console.log(this.state.emailContent))
+            this.setState({emailContent: {...emailContent}})
         }
     }
 

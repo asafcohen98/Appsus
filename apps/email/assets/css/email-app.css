@@ -3,9 +3,6 @@
 @import url(./email-preview.css);
 @import url(./email-filter.css);
 @import url(./email-list.css);
-
-
-
 .email-app {
     display: flex;
     flex-direction: column;
@@ -18,12 +15,6 @@
     align-items: center;
     width: 100%;
     margin-bottom: 1rem;
-}
-
-.email-app-aside:hover {
-    box-shadow: 0 3px 0 #000;
-    padding-inline-end: 1em;
-    box-shadow: 0 16px 10px 0 rgb(0 0 0 / 14%), 0 11px 18px 0 rgb(0 0 0 / 12%), 0 13px 5px -1px rgb(0 0 0 / 20%);
 }
 
 .new-email-button {
@@ -63,7 +54,6 @@
     /* position: absolute; */
     content: 'Compose';
 }
-
 
 .email-inbox-wrapper {
     font-family: Raleway-Light;
@@ -147,7 +137,6 @@
         position: absolute;
         content: 'Compose';
     }
-
     .email-app-aside:hover .new-email-button {
         padding-inline-end: 6em;
     }
@@ -177,12 +166,14 @@
     }
     .email-app-aside:hover {
         width: 300px;
+        box-shadow: 0 3px 0 #000;
+        padding-inline-end: 1em;
+        box-shadow: 0 16px 10px 0 rgb(0 0 0 / 14%), 0 11px 18px 0 rgb(0 0 0 / 12%), 0 13px 5px -1px rgb(0 0 0 / 20%);
     }
     .email-app-aside:hover .new-email-button::after {
         right: 0.7em;
         content: 'Compose';
     }
-    
 }
 
 @media (min-width: 830px) {

@@ -47,7 +47,7 @@
     border-radius: 1rem;
     background-color: #ffff;
     width: 250px;
-    transition: transform 0.6s ease-in-out;
+    transition: transform 0.4s ease-in-out;
 }
 
 .main-nav ul {
@@ -63,28 +63,22 @@
     justify-content: center;
     height: 100%;
     padding: 1em;
-    transition: color .3s;
     border-radius: 1rem;
     cursor: pointer;
 }
 
-.main-nav ul a:hover li>*, .main-nav ul li:hover {
-/* .main-nav ul li a{ */
-    transition: transform 0.3s;
+.main-nav ul li a{
+    transition: all 0.3s;
 }
 
-.main-nav ul a:hover >*, .main-nav ul li:hover {
+.main-nav ul a:hover, .main-nav li a:hover {
     color: #00B594;
+    transform: scale(1.1);
 }
 
 .main-nav .fa-envelope, .main-nav .fa-sticky-note, .main-nav .fa-book-open {
-    transition: color .3s;
     font-size: 3rem;
     position: relative;
-}
-
-.main-nav ul li:hover>*{
-    transform: scale(1.1);
 }
 
 .home-link {
