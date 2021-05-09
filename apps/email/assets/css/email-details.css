@@ -1,0 +1,33 @@
+.email-details {
+    margin-inline-start: 1rem;
+    height: 100%;
+    width: 100%;
+}
+
+
+.email-details h1{
+    width: fit-content;
+    font-family: Raleway-Regular;
+    font-size: 30px;
+    margin-bottom: 0.3em;
+}
+
+.email-details-info {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: inset 0px -1px 1px 0px #00B594;
+    clip-path: inset(0px 1px 0px 1px);
+    padding: 1px;
+    margin-bottom: 1em;
+}
+
+.email-details-sender {
+    font-size: 20px;
+    font-family: Raleway-Regular;
+    margin-inline-start: 0.2em;
+}
+
+
+.email-details-body {
+    max-width: 80ch;
+}

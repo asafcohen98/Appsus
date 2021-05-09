@@ -1,0 +1,183 @@
+@import url(./email-details.css);
+@import url(./email-compose.css);
+@import url(./email-preview.css);
+@import url(./email-filter.css);
+@import url(./email-list.css);
+.email-app {
+    display: flex;
+    flex-direction: column;
+}
+
+/* aside */
+
+.email-app-aside {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.new-email-button {
+    margin: 1rem;
+    font-family: Raleway-Light;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+    display: flex;
+    position: relative;
+    align-items: center;
+    border: unset;
+    padding: 0.3em 0.4em;
+    border-radius: 5em;
+    background-color: unset;
+    margin-bottom: 5%;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    transition: padding .2s, background-color .3s, color .2s;
+}
+
+.new-email-button:hover {
+    box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+    color: #009E81
+}
+
+.new-email-button:active {
+    background-color: rgba(0, 0, 0, 0.068);
+}
+
+.new-email-button .fa-plus {
+    font-size: 2em;
+    color: #00B594
+}
+
+.new-email-button::after {
+    right: 0.7em;
+    /* position: absolute; */
+    content: 'Compose';
+}
+
+.email-inbox-wrapper {
+    font-family: Raleway-Light;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    background-color: rgb(238, 238, 238);
+    border-radius: 5em;
+}
+
+/* inbox button */
+
+.email-inbox-button {
+    background-color: unset;
+    border: unset;
+    /* border-radius: 50%; */
+}
+
+.email-inbox-wrapper .fa-inbox {
+    position: relative;
+    margin-inline-end: 1em
+}
+
+.email-inbox-wrapper {
+    position: relative;
+}
+
+.emails-unread-count {
+    background-color: #ff3737d3;
+    font-family: Raleway-Light;
+    color: #fff;
+    position: absolute;
+    border-radius: 5rem;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 0.2em 0.4em;
+    top: -5px;
+    right: -7px;
+}
+
+/* email app content */
+
+.email-app-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.email-app-tools {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.email-progressbar-wrapper {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 500px) {
+    .email-app {
+        flex-direction: column;
+        margin-inline: 1rem;
+    }
+    .email-app-tools {
+        height: 5vh;
+        flex-direction: unset;
+        margin-inline-start: 1rem;
+    }
+    .email-app-aside {
+        flex-direction: column;
+    }
+    .email-progressbar-wrapper {
+        height: 60%;
+        margin-bottom: unset;
+    }
+    .email-app-aside:hover .new-email-button::after {
+        right: 0.7em;
+        position: absolute;
+        content: 'Compose';
+    }
+    .email-app-aside:hover .new-email-button {
+        padding-inline-end: 6em;
+    }
+    .new-email-button::after {
+        right: unset;
+        content: unset;
+    }
+}
+
+@media (min-width: 750px) {
+    .email-app {
+        margin-inline: unset;
+        height: 90vh;
+        flex-direction: unset;
+    }
+    .email-app-wrapper {
+        height: 100%;
+        width: 120px;
+    }
+    .email-app-aside {
+        position: fixed;
+        z-index: 555;
+        height: 100%;
+        background-color: #fff;
+        width: 120px;
+        transition: width .5s;
+    }
+    .email-app-aside:hover {
+        width: 300px;
+        box-shadow: 0 3px 0 #000;
+        padding-inline-end: 1em;
+        box-shadow: 0 16px 10px 0 rgb(0 0 0 / 14%), 0 11px 18px 0 rgb(0 0 0 / 12%), 0 13px 5px -1px rgb(0 0 0 / 20%);
+    }
+    .email-app-aside:hover .new-email-button::after {
+        right: 0.7em;
+        content: 'Compose';
+    }
+}
+
+@media (min-width: 830px) {
+    .email-app-content {
+        margin-inline-end: 3rem;
+    }
+}

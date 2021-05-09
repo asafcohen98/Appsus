@@ -1,0 +1,65 @@
+
+.color-palette{
+    position: absolute;
+    background-color: #ffff;
+    border-radius: 1em;
+    padding: 0.2em;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    bottom: 50px;
+    right: 10px;
+    display: flex;
+}
+
+.color-palette>*:not(:last-child){
+    margin-inline-end: 0.2em;
+}
+
+.color-palette>*{
+    background-color: none;
+    border-radius: 100%;
+    box-shadow: rgb(0 0 0 / 8%) 0px 0px 8px, rgb(0 0 0 / 27%) 0px 0px 6px;
+}
+
+.color-palette>*:hover{
+    transform: scale(1.2);
+}
+
+.color-1{
+    color: #f94144;
+}
+
+.color-2{
+    color: #adb5bd;
+}
+
+.color-3{
+    color: #f8961e;
+}
+
+.color-4{
+    color: #f9c74f;
+}
+
+.color-5{
+    color: #1b4332;
+}
+
+.color-6{
+    color: #ffe66d;
+}
+
+.color-7{
+    color: #577590;
+}
+
+.color-8{
+    color: #61a5c2;
+}
+
+.color-9{
+    color: #9d4edd;
+}
+
+.color-10{
+    color: #ffff;
+}

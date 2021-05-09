@@ -1,0 +1,178 @@
+.book-details-container {
+    display: flex;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    flex-direction: column;
+}
+
+.book-details {
+    font-family: Raleway-light;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 2rem;
+    padding: 2em 2em;
+}
+
+.go-back-btn {
+    color: #ffff;
+    letter-spacing: 1px;
+    font-size: 1em;
+    border: unset;
+    margin: 1em;
+    padding: 0.5em 0.8em;
+    background-color: #00B594;
+    border-radius: 10px;
+    transition: box-shadow .3s;
+}
+
+.go-back-btn:hover {
+    background-color: #009E81;
+    box-shadow: 0 0 5px #00000042;
+}
+
+.go-back-btn:active {
+    background-color: #009E81;
+}
+
+.book-details .img-container {
+    width: 300px;
+    height: 450px;
+    display: flex;
+    position: relative;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(166, 173, 201, 0.2);
+}
+
+.book-details .img-container span {
+    position: absolute;
+    font-family: Roboto-bold;
+    text-transform: uppercase;
+    background-color: #d90429;
+    bottom: 0.5em;
+    right: 1em;
+    padding: 0.2em 0.5em;
+    box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(166, 173, 201, 0.2);
+}
+
+.book-details .img-container img {
+    object-fit: fill;
+}
+
+.book-categories {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 0 0;
+    color: rgba(58, 57, 57, 0.616);
+}
+
+.book-categories>*:not(:last-child) {
+    margin-inline-end: .5rem;
+}
+
+.book-details h1, .book-details h2, .book-details p {
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.book-details h1 {
+    font-family: Raleway-Regular;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.book-details h2:first-of-type {
+    font-size: 1rem;
+}
+
+.book-details h2:last-of-type {
+    font-family: Raleway-Regular;
+    font-size: 1.5rem;
+}
+
+.high-price {
+    color: #e65555;
+}
+
+.low-price {
+    color: #00B594;
+}
+
+.book-details p {
+    display: inline;
+    display: flex;
+    flex-direction: column;
+    font-family: Roboto-regular;
+}
+
+.book-details button {
+    margin-bottom: 2rem;
+}
+
+.book-details .book-details-desc {
+    font-family: Ralewery-Regular;
+    max-width: 50ch;
+}
+
+.book-details .book-details-desc span {
+    font-family: Ralewery-Regular;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #00B594;
+    transition: color .3s;
+}
+
+.book-details .book-details-desc span:hover {
+    color: #009E81;
+}
+
+/* Scroll bar */
+
+/* width */
+
+.book-details-container::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+
+.book-details-container::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+/* Handle */
+
+.book-details-container::-webkit-scrollbar-thumb {
+    background-color: #00B594;
+    border-radius: 3rem;
+}
+
+/* Handle on hover */
+
+.book-details-container::-webkit-scrollbar-thumb:hover {
+    background-color: #009E81;
+    /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.192); */
+}
+
+.book-details-container::-webkit-scrollbar-thumb:active {
+    background-color: #009E81;
+    box-shadow: inset 0 0 3px rgba(78, 78, 78, 0.287);
+}
+
+
+@media (min-width: 800px){
+    .book-details-container{
+        overflow-y: scroll;
+        flex-direction: unset;
+        padding: 1rem 3rem;
+    }
+
+    .book-details {
+        flex-basis: 50%;
+    }
+}

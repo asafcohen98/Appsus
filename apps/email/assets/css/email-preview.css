@@ -1,0 +1,73 @@
+.email-preview {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    padding: 10px 1rem;
+    background-color: #fff;
+    box-shadow: inset 0px 0px 1px 0px #76c893;
+    cursor: pointer;
+    transition: background-color .3s, box-shadow .3s;
+    font-weight: bold;
+    direction: ltr;
+}
+
+.email-preview:hover {
+    transform: scale(1.001);
+    box-shadow: 0 0 7px 0 #0000001c;
+}
+
+/* name */
+
+.email-preview-content {
+    display: flex;
+    flex-direction: column;
+    margin-inline-start: 5%;
+    font-family: Raleway-Regular;
+    flex-grow: 1;
+}
+
+.email-preview-content :first-child {
+    min-width: 100px;
+}
+
+/* headline */
+
+.email-preview>*:nth-child(3) {
+    margin-inline-end: 2rem;
+}
+
+.email-preview i:hover {
+    transform: scale(1.1);
+}
+
+/* envelope */
+
+.email-preview>*:nth-child(4) {
+    margin-inline-end: 0.5em;
+}
+
+/* states */
+
+.email-preview.read {
+    background-color: #f5f7f7;
+    font-weight: unset;
+}
+
+.email-preview.selected {
+    background-color: #00B594;
+}
+
+@media (min-width: 500px) {
+    
+}
+
+@media (min-width: 700px) {
+    .email-preview-content :first-child {
+        min-width: 150px;
+        margin-inline-end: 2rem;
+    }
+
+    .email-preview-content{
+        flex-direction: unset;
+    }
+}

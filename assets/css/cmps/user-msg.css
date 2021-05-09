@@ -1,0 +1,102 @@
+
+
+.user-msg{
+    background: #fff;
+    font-family: Raleway-Regular;
+    padding: 1rem;
+    position: fixed;
+    top:1em;
+    right: 1em;
+    border-radius: 1rem;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    transition: transform 0.5s ease-in-out, opacity 0.7s;
+}
+
+.user-msg i {
+    font-size: 3em;
+    margin-inline-end: 1rem;
+}
+
+.user-msg .user-msg-txt{
+    word-break: normal;
+    max-width: 250px;
+    margin-inline-end: 1rem;
+}
+
+.user-msg .user-msg-txt h1{
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+
+.user-msg .user-msg-txt p{
+    margin: 0;
+    color: #7b7a7adb;
+}
+
+.user-msg button{
+    color: #fff;
+    background-color: transparent;
+    font-size: 1.3em;
+    border:none;
+    position: absolute;
+    right: 0.5em;
+    top: 0.5em;
+    transition: transform 0.3s;
+}
+
+.user-msg button:hover{
+    transform: scale(1.1);
+}
+
+/* Success msg */
+
+.user-msg.success button{
+    background-color: #00B594;
+    border-radius: 2rem;
+    padding: 0 0.3em;
+}
+
+.user-msg.success i {
+   color: #00B594;
+}
+
+.user-msg.success .user-msg-txt h1{
+    color: #00B594; 
+}
+
+/* Error msg */
+
+.user-msg.error button{
+    background-color: #e65555;
+    border-radius: 2rem;
+    padding: 0 0.3em;
+}
+
+.user-msg.error i {
+   color: #e65555;
+}
+
+.user-msg.error .user-msg-txt h1{
+    color: #e65555;
+}
+
+
+/* Save msg */
+
+.user-msg.save button{
+    background-color:  rgb(96, 96, 96);
+    border-radius: 2rem;
+    padding: 0 0.3em;
+}
+
+.user-msg.save i {
+   color: rgb(96, 96, 96);
+}
+
+.user-msg.save .user-msg-txt h1{
+    color: rgb(96, 96, 96);
+}

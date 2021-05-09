@@ -1,0 +1,9 @@
+
+
+.book-reviews{
+    flex-basis: 50%;
+    border-radius: 2rem;
+    display: flex;
+    font-family: Ralewery-Regular;
+    flex-direction: column;
+}
